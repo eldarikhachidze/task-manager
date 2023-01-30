@@ -1,1 +1,27 @@
+.main-layout{
+  //height: 100vh;
+  width: 100vm;
+  display: block;
+  background: linear-gradient(127.41deg, #8E7BFF 8.11%, #100075 88.9%);
+  font-family: 'Montserrat', sans-serif;
+
+  .container{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .backgr{
+      width: 50%;
+      height: 50%;
+
+      img{
+        width: 100%;
+      }
+    }
+
+  }
+}
+
+
 
