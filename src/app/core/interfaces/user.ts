@@ -1,7 +1,12 @@
 export interface User {
-  id: number,
-  firstName: string,
-  lastName: string
-  email: string,
-  role: string
+  id: number;
+  createdAt: Date;
+  firstName: string;
+  lastName: string;
+  email: string;
+  mobileNumber: string;
+  isActive: boolean;
+  userPermissions: string[];
+  roles: string[];
+  projects: string[];
 }
