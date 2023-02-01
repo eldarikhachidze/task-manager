@@ -3,16 +3,20 @@
   height: 100vh;
   display: block;
   background: linear-gradient(127.41deg, #8E7BFF 8.11%, #100075 88.9%);
-
-
-}
-
-  .backgr {
-    //background-image: url(src/assets/images/key.png);
-    background-repeat: no-repeat;
-    height: 100%;
+  .container {
     width: 100%;
-    display: block;
-    background-image: url(/src/assets/images/key.png);
-    background-size: cover;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 130px 30px;
   }
+}
+.background-img {
+  width: 100%;
+  height: 600px;
+  display: block;
+  background-image: url(/assets/images/key.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
