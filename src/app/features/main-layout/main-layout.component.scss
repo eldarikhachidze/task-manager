@@ -1,1 +1,18 @@
+.main-layout{
+  width: 100vm;
+  height: 100vh;
+  display: block;
+  background: linear-gradient(127.41deg, #8E7BFF 8.11%, #100075 88.9%);
 
+
+}
+
+  .backgr {
+    //background-image: url(src/assets/images/key.png);
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    display: block;
+    background-image: url(/src/assets/images/key.png);
+    background-size: cover;
+  }

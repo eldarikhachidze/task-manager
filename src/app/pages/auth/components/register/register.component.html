@@ -10,14 +10,14 @@
     <input type="email" class="form-control" formControlName="email"  id="email" placeholder="name@example.com">
   </div>
   <div class="form-floating my-3">
-    <input type="password" formControlName="password" placeholder="Password">
+    <input type="password" class="form-control" formControlName="password" placeholder="Password">
     <div *ngIf="f?.password?.touched && f?.password?.invalid" class="alert alert-danger">
       <div *ngIf="f?.password?.errors?.required">Password is required.</div>
       <div *ngIf="f?.password?.errors?.minLength">minlength</div>
     </div>
   </div>
   <div class="form-floating my-3">
-    <input type="password" formControlName="confirmPassword" placeholder="Confirm Password">
+    <input type="password" class="form-control"  formControlName="confirmPassword" placeholder="Confirm Password">
     <div *ngIf="f?.password?.touched && f?.password?.invalid" class="alert alert-danger">
       <div *ngIf="f?.password?.errors?.required">Password is required.</div>
       <div *ngIf="f?.password?.errors?.['confirmedValidator']">Password and Confirm Password must be match.</div>
