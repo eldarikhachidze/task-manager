@@ -1,10 +1,10 @@
 header{
-  height: 100px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 30px;
+  //height: 100px;
+  //width: 100%;
+  //display: flex;
+  ////justify-content: space-between;
+  //align-items: center;
+  //padding: 10px 30px;
   font-family: 'Montserrat', sans-serif;
   background: #8E7BFF;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -13,35 +13,36 @@ header{
     font-size: 40px;
     color: white;
     font-weight: 1000;
+    margin-bottom: 0;
 
   }
 
-  nav{
-    width: 250px;
-    display: flex;
-    justify-content: space-between;
-    margin-right: 2%;
+  //nav{
+  //  width: 250px;
+  //  display: flex;
+  //  justify-content: space-between;
+  //  margin-right: 2%;
+  //
+  //  .login{
+  //    padding: 10px;
+  //    a{
+  //      text-decoration: none;
+  //      color: black;
+  //    }
+  //  }
+  //  .reg{
+  //    padding: 10px;
+  //    //border: 1px solid black;
+  //    background-color: #2400FFFF;
+  //    border-radius: 10px;
+  //
+  //    a{
+  //      text-decoration: none;
+  //      color: white;
+  //    }
+  //  }
 
-    .login{
-      padding: 10px;
-      a{
-        text-decoration: none;
-        color: black;
-      }
-    }
-    .reg{
-      padding: 10px;
-      //border: 1px solid black;
-      background-color: #2400FFFF;
-      border-radius: 10px;
-
-      a{
-        text-decoration: none;
-        color: white;
-      }
-    }
 
 
-
-  }
+  //}
 }

@@ -18,10 +18,18 @@ export class AuthService extends BaseService{
   }
   login (payload: Login): Observable<LoginResponse> {
     return this.post<LoginResponse>('auth/login', payload)
+      .pipe(
+        tap((response: LoginResponse) => {
+            this.setToken(response.token.accessToken);
+            this.setUser(response.user);
+          }
+        )
+      )
   }
 
   register (payload: Register): Observable<User> {
     return this.post<User>('auth/signup', payload)
+
   }
 
   setToken(token: string): void {
@@ -30,6 +38,9 @@ export class AuthService extends BaseService{
 
   setUser(user: User): void {
     localStorage.setItem('user', JSON.stringify(user))
+  }
+  signOut() {
+    localStorage.clear();
   }
 }
 
