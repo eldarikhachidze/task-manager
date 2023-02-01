@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../../core/services/auth.service";
 import {Router} from "@angular/router";
 import {CookieService} from "ngx-cookie-service";
+import {CookieStorageService} from "../../../../core/services/cookies.service";
 
 @Component({
   selector: 'app-login',
@@ -14,22 +15,32 @@ export class LoginComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
   })
+
   constructor(
     private authService: AuthService,
-    private cookie: CookieService,
+    private cookie: CookieStorageService,
     private router: Router
-  ) { }
-
-  ngOnInit(): void {
+  ) {
   }
+
+
+  ngOnInit() {
+    // this.cookie.setCookie('Test', '');
+  }
+
+  // getCookie() {
+  //   const value: string = this.cookie.getCookie('Test');
+  //   console.log(value);
+  // }
 
   submit() {
     this.form.markAllAsTouched()
-    if(this.form.invalid) return
+    if (this.form.invalid) return
 
     this.authService.login(this.form.value).subscribe(res => {
       console.log(res)
       this.router.navigate(['/'])
     })
+
   }
 }

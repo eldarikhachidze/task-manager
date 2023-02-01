@@ -42,5 +42,9 @@ export class AuthService extends BaseService{
   signOut() {
     localStorage.clear();
   }
+
+  refreshToken() {
+  return this.post( 'auth/refresh',  {})
+  }
 }
 
