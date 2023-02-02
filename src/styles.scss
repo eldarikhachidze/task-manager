@@ -7,19 +7,19 @@ $blue: linear-gradient(104.94deg, #5F45FF 27.57%, #2400FF 86.01%);
   list-style-type: none;
   padding: 0;
   margin: 0;
-
 }
-
-
+a {
+  text-decoration: none;
+}
 .nav-menu {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 5px;
+  gap: 15px;
   .header-components {
     width: 40px;
     height: 40px;
-    background-color: rgb(140, 128, 231);
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 5px;
   }
 }
@@ -34,4 +34,9 @@ $blue: linear-gradient(104.94deg, #5F45FF 27.57%, #2400FF 86.01%);
   background-color: #908686;
 }
 
-
+.logo-pr {
+  color: #8E7BFF;
+}
+.logo-sc {
+  color: white;
+}

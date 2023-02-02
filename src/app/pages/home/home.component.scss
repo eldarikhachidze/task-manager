@@ -1,16 +1,24 @@
 .home-content {
-  height: 100vh;
+  height: 95vh;
   background-color: #5F45FF;
   display: flex;
+
   .side-bar {
     width: 280px;
-    height: 95vh;
     background: Linear-Gradient(#2400FF 100%, #5746C2 100%);
   }
+
   .home-nav {
     width: 100%;
     display: flex;
-    .container {
+    justify-content: space-around;
+
+    .content {
+      width: 100%;
+      padding: 5px 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
 
       .board {
         width: 150px;
@@ -19,5 +27,10 @@
         border-radius: 5px;
       }
     }
+  }
+}
+.logo-sc {
+  h1 {
+    color: #FFFFFF;
   }
 }
