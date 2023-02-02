@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../../core/services/auth.service";
 import {Router} from "@angular/router";
-import {CookieService} from "ngx-cookie-service";
 import {CookieStorageService} from "../../../../core/services/cookies.service";
 
 @Component({
@@ -39,8 +38,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.form.value).subscribe(res => {
       console.log(res)
-      this.router.navigate(['/'])
+      this.router.navigate(['/home'])
     })
-
   }
 }

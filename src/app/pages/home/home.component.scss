@@ -1,1 +1,23 @@
+.home-content {
+  height: 100vh;
+  background-color: #5F45FF;
+  display: flex;
+  .side-bar {
+    width: 280px;
+    height: 95vh;
+    background: Linear-Gradient(#2400FF 100%, #5746C2 100%);
+  }
+  .home-nav {
+    width: 100%;
+    display: flex;
+    .container {
 
+      .board {
+        width: 150px;
+        height: 40px;
+        background-color: #FFFFFF;
+        border-radius: 5px;
+      }
+    }
+  }
+}

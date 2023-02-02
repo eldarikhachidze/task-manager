@@ -11,4 +11,27 @@ $blue: linear-gradient(104.94deg, #5F45FF 27.57%, #2400FF 86.01%);
 }
 
 
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  .header-components {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(140, 128, 231);
+    border-radius: 5px;
+  }
+}
+.pr-color {
+  height: 40px;
+  border: none;
+  background-color: rgb(140, 128, 231);
+}
+.wrapper {
+  width: 1px;
+  height: 35px;
+  background-color: #908686;
+}
+
 

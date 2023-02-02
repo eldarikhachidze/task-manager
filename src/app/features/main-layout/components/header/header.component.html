@@ -1,26 +1,34 @@
-<header class="p-3 mb-3  ">
+<header class="">
   <div class="container ">
     <div class="d-flex flex-wrap align-items-center  justify-content-between  gap-3">
-      <a routerLink="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none logo">
+      <a routerLink="/home" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none logo">
         <h1>ACTIVE</h1>
       </a>
-
       <ng-container *ngIf="userIsAuthenticated; else notAuthenticated">
-
-        <div class="dropdown text-end">
-          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
-             aria-expanded="false">
-            <img src="https://scontent.ftbs5-2.fna.fbcdn.net/v/t1.6435-9/72908509_1770363793097854_4799334586993606656_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=dKoYxdQjAvUAX_zGa2Y&_nc_ht=scontent.ftbs5-2.fna&oh=00_AfDk26qA2IXkSgRPy6T-zrG_qI21kHqE_1XRQjQWmA2yLA&oe=64023C67" alt="mdo" width="40" height="40" class="rounded-circle">
-          </a>
-          <ul class="dropdown-menu text-small">
-            <li><a class="dropdown-item" routerLink="/">projects</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item " (click)="signOut()">Sign out</a></li>
-          </ul>
+        <div class="nav-menu">
+          <div class="header-components"></div>
+          <div class="header-components"></div>
         </div>
-
+        <form class=" col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="pr-color form-control" placeholder="Search..." aria-label="Search">
+        </form>
+        <div class="nav-menu">
+          <div class="header-components"></div>
+          <div class="header-components"></div>
+          <div class="dropdown text-end">
+            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
+               aria-expanded="false">
+              <img src="https://scontent.ftbs5-2.fna.fbcdn.net/v/t1.6435-9/72908509_1770363793097854_4799334586993606656_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=dKoYxdQjAvUAX_zGa2Y&_nc_ht=scontent.ftbs5-2.fna&oh=00_AfDk26qA2IXkSgRPy6T-zrG_qI21kHqE_1XRQjQWmA2yLA&oe=64023C67" alt="mdo" width="40" height="40" class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small">
+              <li><a class="dropdown-item" routerLink="/">projects</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item " (click)="signOut()">Sign out</a></li>
+            </ul>
+          </div>
+        </div>
       </ng-container>
         <ng-template #notAuthenticated>
         <div class="col-md-3 text-end">
@@ -28,8 +36,6 @@
           <button routerLink="/auth/register" type="button" class="btn btn-primary">Sign-up</button>
         </div>
       </ng-template>
-
-
     </div>
   </div>
 </header>
