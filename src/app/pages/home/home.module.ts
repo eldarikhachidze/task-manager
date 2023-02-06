@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import {MainLayoutModule} from "../../features/main-layout/main-layout.module";
+import {ProjectCardModule} from "../../features/project-card/project-card.module";
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {MainLayoutModule} from "../../features/main-layout/main-layout.module";
     imports: [
         CommonModule,
         HomeRoutingModule,
-        MainLayoutModule
+        MainLayoutModule,
+        ProjectCardModule
     ]
 })
 export class HomeModule { }
