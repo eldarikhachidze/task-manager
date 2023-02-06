@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {UntypedFormControl, UntypedFormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../../core/services/auth.service";
 import {Router} from "@angular/router";
 
@@ -9,12 +9,12 @@ import {Router} from "@angular/router";
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  form: FormGroup = new FormGroup({
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
-    confirmPassword: new FormControl(null, Validators.required),
+  form: UntypedFormGroup = new UntypedFormGroup({
+    firstName: new UntypedFormControl('', Validators.required),
+    lastName: new UntypedFormControl('', Validators.required),
+    email: new UntypedFormControl('', [Validators.required, Validators.email]),
+    password: new UntypedFormControl(null, [Validators.required, Validators.minLength(6)]),
+    confirmPassword: new UntypedFormControl(null, Validators.required),
   }, {validators: this.ConfirmedValidator('password', 'confirmPassword')})
 
   constructor(
@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ConfirmedValidator(controlName: string, matchingControlName: string): any {
-    return (formGroup: FormGroup) => {
+    return (formGroup: UntypedFormGroup) => {
       const control = formGroup.controls[controlName];
       const matchingControl = formGroup.controls[matchingControlName];
       if (matchingControl.errors && !matchingControl.errors['confirmedValidator']) {
