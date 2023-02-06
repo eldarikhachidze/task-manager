@@ -24,11 +24,11 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit() {
-    // this.cookie.setCookie('Test', '');
+    // this.cookie.setCookie('isLoggedIn', 'true');
   }
-
+  //
   // getCookie() {
-  //   const value: string = this.cookie.getCookie('Test');
+  //   const value: string = this.cookie.getCookie('logged_in');
   //   console.log(value);
   // }
 
@@ -38,7 +38,9 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.form.value).subscribe(res => {
       console.log(res)
-      this.router.navigate(['/home'])
+      this.router.navigate(['home'])
+      // const value: string = this.cookie.getCookie('logged_in');
     })
   }
+
 }

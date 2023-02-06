@@ -41,6 +41,7 @@ export class AuthService extends BaseService{
   }
   signOut() {
     localStorage.clear();
+
   }
 
   refreshToken() {

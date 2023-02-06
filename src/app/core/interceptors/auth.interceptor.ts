@@ -4,7 +4,7 @@ import {
   HttpHandler,
   HttpInterceptor, HttpResponse, HttpHeaderResponse, HttpSentEvent, HttpProgressEvent, HttpUserEvent
 } from '@angular/common/http';
-import {BehaviorSubject, catchError, filter, finalize, Observable, of, switchMap, take, throwError} from 'rxjs';
+import {BehaviorSubject, catchError, filter, finalize, of, switchMap, take, throwError} from 'rxjs';
 import {AuthService} from "../services/auth.service";
 import {Router} from "@angular/router";
 
@@ -19,7 +19,7 @@ export class AuthInterceptor implements HttpInterceptor {
     token : string|null
   ): HttpRequest<any>{
     if(token){
-      return request.clone( {setHeaders: {Autorization: `bearer ${token}`}})
+      return request.clone( {setHeaders: {Authorization: `bearer ${token}`}})
     }
     return  request;
   }
