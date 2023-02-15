@@ -29,7 +29,12 @@ export class AuthService extends BaseService{
 
   register (payload: Register): Observable<User> {
     return this.post<User>('auth/signup', payload)
-
+  }
+  refreshToken(refreshToken: string): Observable<LoginResponse> {
+    return this.post( 'auth/refresh',  {refreshToken})
+  }
+  checkEmail(email: any) {
+    return this.post('auth/checkEmail', {email})
   }
 
   setToken(token: string): void {
@@ -42,10 +47,6 @@ export class AuthService extends BaseService{
   signOut() {
     localStorage.clear();
 
-  }
-
-  refreshToken() {
-  return this.post( 'auth/refresh',  {})
   }
 }
 

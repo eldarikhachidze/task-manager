@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { CookieService} from "ngx-cookie-service";
 
 
 @Injectable({
@@ -7,31 +6,28 @@ import { CookieService} from "ngx-cookie-service";
 })
 export class CookieStorageService {
 
-  constructor(
-    private cookieService :CookieService
-  ) { }
+  constructor() { }
 
-  setCookie(name:string, value: string, days?:number){
-    this.cookieService.set(name, value, {
-
-      path: '/',
-      domain: `.${window.location.hostname}`,
-      secure: true,
-      sameSite: 'Strict',
-    })
-
+  setCookie(name:string, value: string, days: number){
+    let expires = "";
+    if (days) {
+      let  date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString()
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
   }
-  getCookie( name: string){
-    return this.cookieService.get(name)
-
+  getCookie(name: string) {
+    let nameEQ = name + "=";
+    let ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
   }
   eraseCookie(name: string){
-    this.cookieService.delete(name)
+    document.cookie = name+'=; Max-age=-99999999;';
   }
-  eraseAllCookies(){
-    this.cookieService.deleteAll()
-  }
-
-
-
 }

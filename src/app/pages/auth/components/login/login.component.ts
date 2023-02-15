@@ -17,29 +17,24 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private cookie: CookieStorageService,
+    private cookieStorageService: CookieStorageService,
     private router: Router
   ) {
   }
 
 
   ngOnInit() {
-    // this.cookie.setCookie('isLoggedIn', 'true');
   }
-  //
-  // getCookie() {
-  //   const value: string = this.cookie.getCookie('logged_in');
-  //   console.log(value);
-  // }
 
   submit() {
     this.form.markAllAsTouched()
     if (this.form.invalid) return
 
-    this.authService.login(this.form.value).subscribe(res => {
-      console.log(res)
-      this.router.navigate(['home'])
-      // const value: string = this.cookie.getCookie('logged_in');
+   this.authService.login(this.form.value).subscribe((res) => {
+      this.cookieStorageService.setCookie('accessToken', res.token.accessToken, 1)
+      this.cookieStorageService.setCookie('refreshToken', res.token.refreshToken, 1)
+     localStorage.setItem('user', JSON.stringify(res.user))
+     this.router.navigate(['home'])
     })
   }
 
