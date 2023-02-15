@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Project} from "../../core/interfaces/project";
+import {PageOptions} from "../../core/interfaces/page-options";
 
 @Component({
   selector: 'app-project-card',
@@ -7,7 +7,7 @@ import {Project} from "../../core/interfaces/project";
   styleUrls: ['./project-card.component.scss']
 })
 export class ProjectCardComponent implements OnInit{
-  @Input() project: Project = {} as Project
+  @Input() project: PageOptions = {} as PageOptions
 
   ngOnInit(): void {
   }

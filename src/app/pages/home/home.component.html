@@ -30,29 +30,27 @@
       <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
         <div class="nav-menu">
           <a class="logo-sc">
-            <h1>Project</h1>
+            <h1>PageOptions</h1>
           </a>
-          <div class="header-components"></div>
+          <div class="header-components">S</div>
           <div class="wrapper"></div>
           <div class="board">BOARD</div>
           <div class="header-components dropdown text-center">
-            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
-               aria-expanded="false">
-            </a>
-            <ul class="dropdown-menu text-small">
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-            </ul>
+            <div class="dropdown text-end">
+              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              </a>
+              <section [ngModel]="currentProject?.id" (ngModelChange)="selectProject($event)">
+                <option *ngFor="let project of projects$ | async" [value]="project.id">
+                  {{project.name}}
+                </option>
+              </section>
+            </div>
           </div>
         </div>
         <div class="nav-menu">
           <div class="header-components"><a routerLink="/project">Add</a></div>
           <div class="header-components"></div>
         </div>
-      </div>
-      <div>
-        <app-project-card *ngFor="let project of projects" [project]="project"></app-project-card>
       </div>
     </div>
   </div>

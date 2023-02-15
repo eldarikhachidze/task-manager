@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../../../core/services/auth.service";
 import {Router} from "@angular/router";
+import {AuthFacade} from "../../../../core/facades/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,8 @@ import {Router} from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
 
-  get userIsAuthenticated(){
-    return  this.authService.token
+  get isAuth(): boolean{
+    return this.authFacade.isAuth;
   }
   get user(){
     return this.authService.user
@@ -18,13 +19,13 @@ export class HeaderComponent implements OnInit {
   }
   constructor(
     private  authService: AuthService,
-    private router: Router
+    private authFacade: AuthFacade,
   ) { }
 
   ngOnInit(): void {
   }
 
-  signOut() {
-    this.authService.signOut()
+  logout() {
+    this.authFacade.logout()
   }
 }

@@ -1,10 +1,7 @@
-import {Datum} from "./datum";
-
 export interface Project {
-    data: Datum[];
-    totalCount: number;
-    page: number;
-    limit: number;
+  id: number;
+  name: string;
+  abbreviation: string;
+  description: string;
+  color: string;
 }
-
-

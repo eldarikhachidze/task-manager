@@ -7,6 +7,7 @@ import {MainLayoutModule} from "./features/main-layout/main-layout.module";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./core/interceptors/auth.interceptor";
 import {CookieService} from "ngx-cookie-service";
+import {ProjectInterceptor} from "./core/interceptors/project.interceptor";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,11 @@ import {CookieService} from "ngx-cookie-service";
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ProjectInterceptor,
       multi: true
     },
     CookieService

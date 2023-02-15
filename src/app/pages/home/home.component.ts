@@ -1,32 +1,28 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ProjectsService} from "../../core/services/projects.service";
+import {ProjectService} from "../../core/services/project.service";
+import {Observable} from "rxjs";
 import {Project} from "../../core/interfaces/project";
-import {Subject, takeUntil} from "rxjs";
-
+import {ProjectFacade} from "../../core/facades/project.service";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy {
-  projects: Project[] = []
-  sub$ = new Subject()
+export class HomeComponent implements OnInit {
+  projects = []
+
+  projects$: Observable<Project[]> = this.projectService.getAllProjects();
+  currentProject?: Project = this.projectFacade.getProject()
   constructor(
-    private projectService: ProjectsService
+    private projectService: ProjectService,
+    private projectFacade: ProjectFacade,
   ) { }
 
   ngOnInit(): void {
-    this.getProjects()
   }
-  getProjects() {
-    this.projectService.getProjects({})
-      .pipe(takeUntil(this.sub$))
-      .subscribe((projects) => {
-        this.projects = projects
-      })
-  }
-  ngOnDestroy(): void {
-    this.sub$.next(null)
-    this.sub$.complete()
+
+  selectProject(projectId: any) {
+    console.log(projectId);
+    this.projectFacade.setProject(projectId)
   }
 }
