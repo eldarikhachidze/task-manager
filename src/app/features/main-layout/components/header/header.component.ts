@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../../../core/services/auth.service";
 import {AuthFacade} from "../../../../core/facades/auth.service";
-import {Observable} from "rxjs";
 import {Project} from "../../../../core/interfaces/project";
 import {ProjectService} from "../../../../core/services/project.service";
 import {ProjectFacade} from "../../../../core/facades/project.service";
@@ -14,8 +13,9 @@ import {ProjectFacade} from "../../../../core/facades/project.service";
 export class HeaderComponent implements OnInit {
   projects = []
 
-  projects$: Observable<Project[]> = this.projectService.getMyProjects();
+
   currentProject?: Project = this.projectFacade.getProject()
+  projects$ = this.projectFacade.myProjects$;
 
   get isAuth(): boolean{
     return this.authFacade.isAuth;
@@ -32,6 +32,7 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getMyProjects()
   }
 
   logout() {
@@ -39,7 +40,9 @@ export class HeaderComponent implements OnInit {
   }
 
   selectProject(projectId: any) {
-    console.log(projectId);
     this.projectFacade.setProject(projectId)
+  }
+  getMyProjects() {
+    this.projectFacade.getMyProjects$().subscribe()
   }
 }

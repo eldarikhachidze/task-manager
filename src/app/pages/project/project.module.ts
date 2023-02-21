@@ -6,6 +6,7 @@ import {ProjectComponent} from "./project.component";
 import { ProjectSettingComponent } from './project-setting/project-setting.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectAddEditComponent } from './project-add-edit/project-add-edit.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ProjectAddEditComponent } from './project-add-edit/project-add-edit.com
   ],
   imports: [
     CommonModule,
-    ProjectRoutingModule
+    ProjectRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class ProjectModule { }

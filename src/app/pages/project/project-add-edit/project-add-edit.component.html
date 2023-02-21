@@ -1,1 +1,19 @@
-<p>project-add-edit works!</p>
+<form [formGroup]="form" >
+  <div>
+    <input type="text" class="form-control" formControlName="name"  id="name" placeholder="name">
+    <label for="name">Name</label>
+  </div>
+  <div>
+    <input type="text" class="form-control" formControlName="abbreviation"  id="abbreviation" placeholder="abbreviation">
+    <label for="abbreviation">abbreviation</label>
+  </div>
+  <div>
+    <input type="text" class="form-control" formControlName="description"  id="description" placeholder="description">
+    <label for="description">Name</label>
+  </div>
+  <div>
+    <input type="text" class="form-control" formControlName="color"  id="color" placeholder="description">
+    <label for="color">color</label>
+  </div>
+  <button (click)="save()">Save</button>
+</form>
