@@ -15,6 +15,9 @@ export class ProjectService extends BaseService{
   getAllProjects(): Observable<Project[]> {
     return this.get<Project[]>('project/all')
   }
+  getMyProjects(): Observable<Project[]> {
+    return this.get<Project[]>('project/my')
+  }
   getProject(id: number): Observable<Project> {
     return this.get<Project>(`project/${id}`);
   }

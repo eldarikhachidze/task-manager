@@ -23,7 +23,7 @@ const routes: Routes = [
         loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)
       },
       {
-        path: 'project',
+        path: 'projects',
         loadChildren: () => import('./pages/project/project.module').then(m => m.ProjectModule)
       },
     ]

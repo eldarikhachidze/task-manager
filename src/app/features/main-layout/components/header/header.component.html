@@ -13,15 +13,21 @@
           <input type="search" class="pr-color form-control search" placeholder="Search..." aria-label="Search">
         </form>
         <div class="nav-menu">
-          <div class="header-components"></div>
-          <div class="header-components"></div>
+          <ng-container *ngIf="currentProject">
+            <button [routerLink]="['/projects/setting']" class="header-components">S</button>
+          </ng-container>
+          <button [routerLink]="['/projects/add']" class="header-components">Add</button>
           <div class="dropdown text-end">
             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown"
                aria-expanded="false">
 <!--              <img src="https://scontent.ftbs5-2.fna.fbcdn.net/v/t1.6435-9/72908509_1770363793097854_4799334586993606656_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=dKoYxdQjAvUAX_zGa2Y&_nc_ht=scontent.ftbs5-2.fna&oh=00_AfDk26qA2IXkSgRPy6T-zrG_qI21kHqE_1XRQjQWmA2yLA&oe=64023C67" alt="mdo" width="40" height="40" class="rounded-circle">-->
             </a>
             <ul class="dropdown-menu text-small">
-              <li><a class="dropdown-item" routerLink="/project">projects</a></li>
+                <section [ngModel]="currentProject?.id" (ngModelChange)="selectProject($event)">
+                  <option *ngFor="let project of projects$ | async" [value]="project.id">
+                    {{project.name}}
+                  </option>
+                </section>
               <li>
                 <hr class="dropdown-divider">
               </li>
