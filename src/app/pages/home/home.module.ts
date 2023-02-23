@@ -5,6 +5,9 @@ import {MainLayoutModule} from "../../features/main-layout/main-layout.module";
 import {ProjectCardModule} from "../../features/project-card/project-card.module";
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
+import {UserModule} from "../user/user.module";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -16,7 +19,10 @@ import {CommonModule} from "@angular/common";
         HomeRoutingModule,
         MainLayoutModule,
         ProjectCardModule,
-        FormsModule
+        FormsModule,
+        UserModule,
+        MatDialogModule,
+        MatButtonModule
     ]
 })
 export class HomeModule { }

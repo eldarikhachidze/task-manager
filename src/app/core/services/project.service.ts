@@ -31,4 +31,14 @@ export class ProjectService extends BaseService{
   deleteProject(id: number): Observable<any> {
     return this.delete(`project/${id}`)
   }
+  getProjectUsers(): Observable<any> {
+    return this.get(`project/users`);
+  }
+
+  addProjectUser( data: {
+    projectId: number,
+    userIds: number[]
+  }): Observable<any> {
+    return this.post(`project/users`, data);
+  }
 }

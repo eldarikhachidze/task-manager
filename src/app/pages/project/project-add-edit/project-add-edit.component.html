@@ -1,19 +1,21 @@
 <form [formGroup]="form" >
-  <div>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
     <input type="text" class="form-control" formControlName="name"  id="name" placeholder="name">
-    <label for="name">Name</label>
-  </div>
-  <div>
+  </mat-form-field>
+  <mat-form-field>
     <input type="text" class="form-control" formControlName="abbreviation"  id="abbreviation" placeholder="abbreviation">
-    <label for="abbreviation">abbreviation</label>
-  </div>
-  <div>
+    <mat-label >abbreviation</mat-label>
+    </mat-form-field>
+  <mat-form-field>
     <input type="text" class="form-control" formControlName="description"  id="description" placeholder="description">
-    <label for="description">Name</label>
-  </div>
-  <div>
-    <input type="text" class="form-control" formControlName="color"  id="color" placeholder="description">
-    <label for="color">color</label>
-  </div>
-  <button (click)="save()">Save</button>
+    <mat-label>description</mat-label>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Color</mat-label>
+    <input matInput placeholder="Color" formControlName="color" type="color">
+  </mat-form-field>
+
+  <button mat-button class="btn" (click)="save()">create</button>
 </form>
