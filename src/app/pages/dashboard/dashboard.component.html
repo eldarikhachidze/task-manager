@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="sidebar">
+    <ul>
+      <li *ngFor="let board of boards$ |async">
+        <a [routerLink]="['/dashboard', board.id]">{{board.name}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="content">
+
+    <router-outlet></router-outlet>
+
+  </div>
+</div>

@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  gap: 20px;
+  margin: 20px;
+
+  .sidebar {
+    flex: 0 0 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(269.65deg, #2400FF -3.46%, #5746C2 100%);
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .content {
+    flex: 1 1 auto;
+    background: linear-gradient(269.65deg, rgba(36,0,255,0.43) -3.46%, rgba(87, 70, 194, 0.31) 100%);
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  }
+}
