@@ -1,16 +1,16 @@
-import {Component, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ProjectService} from "../../../core/services/project.service";
 import {Subject, switchMap, takeUntil, tap} from "rxjs";
 import {ProjectFacade} from "../../../core/facades/project.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-project-add-edit',
   templateUrl: './project-add-edit.component.html',
   styleUrls: ['./project-add-edit.component.scss']
 })
-export class ProjectAddEditComponent implements OnDestroy{
+export class ProjectAddEditComponent implements OnDestroy, OnInit{
 
   form: FormGroup = new FormGroup({
     name: new FormControl(null, Validators.required),
@@ -24,6 +24,7 @@ export class ProjectAddEditComponent implements OnDestroy{
   constructor(
     private readonly projectService: ProjectService,
     private router: Router,
+    private route:ActivatedRoute,
     private readonly projectFacade: ProjectFacade,
   ) {
   }
@@ -49,5 +50,15 @@ export class ProjectAddEditComponent implements OnDestroy{
   ngOnDestroy(): void {
     this.sub$.next(null);
     this.sub$.complete()
+  }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      if (params['id']) {
+        this.projectService.getProject(+params['id']).subscribe(res => {
+          this.form.patchValue(res)
+        })
+      }
+    })
   }
 }

@@ -7,6 +7,8 @@ import { ProjectBoardComponent } from './project-board/project-board.component';
 import { IssueTypesComponent } from './issue-types/issue-types.component';
 import { ProjectUsersComponent } from './project-users/project-users.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatListModule} from "@angular/material/list";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import {MatDialogModule} from "@angular/material/dialog";
   imports: [
     CommonModule,
     ProjectSettingRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    MatListModule,
+    MatButtonModule
   ]
 })
 export class ProjectSettingModule { }
