@@ -1,10 +1,5 @@
-import {Column} from "./column";
-
-export interface Board {
-}
 import {Project} from "./project";
-
-
+import {ETaskStatus} from "../enums/etask-status.enum";
 
 export interface Board {
   id: number;
@@ -14,9 +9,22 @@ export interface Board {
   projectId: number;
   project: Project;
   columns: Column[];
-  tasks: [];
+  tasks: Task[];
   createdAt: Date;
   updatedAt: Date;
   deletedAt: Date;
 }
 
+export interface Column {
+  id: number;
+  name: string;
+  description: string;
+  position: number;
+  taskStatus: ETaskStatus;
+  boardId: number;
+  board: string;
+  tasks: Task[];
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt: Date;
+}
