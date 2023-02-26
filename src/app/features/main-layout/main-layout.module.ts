@@ -8,6 +8,11 @@ import {FormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import {CdkDropList} from "@angular/cdk/drag-drop";
+import {CdkMenu, CdkMenuItem, CdkMenuTrigger} from "@angular/cdk/menu";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatSelectModule} from "@angular/material/select";
+import {CdkListbox} from "@angular/cdk/listbox";
 
 
 
@@ -16,14 +21,21 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     MainLayoutComponent,
     HeaderComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    FormsModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatFormFieldModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule,
+        FormsModule,
+        MatButtonModule,
+        MatButtonToggleModule,
+        MatFormFieldModule,
+        CdkDropList,
+        CdkMenuTrigger,
+        CdkMenu,
+        CdkMenuItem,
+        MatMenuModule,
+        MatSelectModule,
+        CdkListbox
+    ],
   exports: [
     MainLayoutComponent,
     HeaderComponent,

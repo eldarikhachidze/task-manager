@@ -37,6 +37,8 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.authFacade.logout()
+    // localStorage.clear()
+    // this.authService.signOut()
   }
 
   selectProject(projectId: any) {

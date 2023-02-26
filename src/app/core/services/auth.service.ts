@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {BaseService} from "./base.service";
-import {Login, LoginResponse, Register, User} from "../interfaces";
+import { LoginResponse, Register, User} from "../interfaces";
 import {Observable, tap} from "rxjs";
 
 @Injectable({
@@ -16,8 +16,8 @@ export class AuthService extends BaseService{
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null
   }
-  login (payload: Login): Observable<LoginResponse> {
-    return this.post<LoginResponse>('auth/login', payload)
+  login (data: any): Observable<LoginResponse> {
+    return this.post<LoginResponse>('auth/login', data)
       .pipe(
         tap((response: LoginResponse) => {
             this.setToken(response.token.accessToken);
@@ -31,7 +31,7 @@ export class AuthService extends BaseService{
     return this.post<User>('auth/signup', payload)
   }
   refreshToken(refreshToken: string): Observable<LoginResponse> {
-    return this.post( 'auth/refresh',  {refreshToken})
+    return this.post<LoginResponse>( 'auth/refresh',  {refreshToken})
   }
   checkEmail(email: any) {
     return this.post('auth/checkEmail', {email})
@@ -47,5 +47,6 @@ export class AuthService extends BaseService{
   signOut() {
     localStorage.clear();
   }
+
 }
 
