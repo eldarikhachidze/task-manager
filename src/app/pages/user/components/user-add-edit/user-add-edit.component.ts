@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
+import {Component, Inject} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../../../core/services/user.service";
 
@@ -22,6 +22,7 @@ export class UserAddEditComponent {
   constructor(
     public dialogRef: MatDialogRef<UserAddEditComponent>,
     private userService: UserService,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
   onSubmit() {
@@ -35,4 +36,14 @@ export class UserAddEditComponent {
         this.dialogRef.close(res);
       })
   }
+
+  ngOnInit(): void {
+    if (this.data.userId) {
+      this.userService.getUser(this.data.userId)
+        .subscribe((res) => {
+          this.form.patchValue(res);
+        })
+    }
+  }
+
 }
