@@ -5,7 +5,7 @@
         {{board.name}}
       </mat-option>
     </mat-select>
-    <button mat-raised-button color="primary" (click)="addBoard()">Add Board</button>
+    <button mat-raised-button color="primary" (click)="addBoard()" [routerLink]="['/projects/setting/boards/add']">Add Board</button>
   </div>
   <div class="container">
     <table mat-table [dataSource]="boards" class="mat-elevation-z8">

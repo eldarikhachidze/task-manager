@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {ProjectFacade} from "../../../../core/facades/project.service";
-import {Project} from "../../../../core/interfaces/project";
+import {ProjectFacade} from "../../../../../core/facades/project.service";
+import {Project} from "../../../../../core/interfaces/project";
 
 @Component({
   selector: 'app-project-info',

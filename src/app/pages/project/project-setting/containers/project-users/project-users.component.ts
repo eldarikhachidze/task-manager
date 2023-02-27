@@ -1,14 +1,14 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {UserService} from "../../../../core/services/user.service";
+import {UserService} from "../../../../../core/services/user.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ProjectService} from "../../../../core/services/project.service";
-import {ProjectFacade} from "../../../../core/facades/project.service";
+import {ProjectService} from "../../../../../core/services/project.service";
+import {ProjectFacade} from "../../../../../core/facades/project.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {Observable, Subject, takeUntil} from "rxjs";
 import {MatDialog} from "@angular/material/dialog";
-import {UserAddEditComponent} from "../../../user/components/user-add-edit/user-add-edit.component";
-import {User} from "../../../../core/interfaces";
-import {Board} from "../../../../core/interfaces/board";
+import {UserAddEditComponent} from "../../../../user/components/user-add-edit/user-add-edit.component";
+import {User} from "../../../../../core/interfaces";
+import {Board} from "../../../../../core/interfaces/board";
 
 
 

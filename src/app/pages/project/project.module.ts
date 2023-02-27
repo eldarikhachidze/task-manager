@@ -14,6 +14,8 @@ import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import { IssueTypesComponent } from './project-setting/containers/issue-types/issue-types.component';
+import { BoardAddEditComponent } from './project-setting/containers/board-add-edit/board-add-edit.component';
 
 
 @NgModule({

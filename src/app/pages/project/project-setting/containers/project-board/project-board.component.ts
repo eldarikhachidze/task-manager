@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {BoardService} from "../../../../core/services/board.service";
+import {BoardService} from "../../../../../core/services/board.service";
 import {Observable} from "rxjs";
-import {Board} from "../../../../core/interfaces/board";
+import {Board} from "../../../../../core/interfaces/board";
 
 @Component({
   selector: 'app-project-board',

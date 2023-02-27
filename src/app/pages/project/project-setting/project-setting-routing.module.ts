@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {ProjectSettingComponent} from "./project-setting.component";
-import {ProjectUsersComponent} from "./project-users/project-users.component";
-import {ProjectInfoComponent} from "./project-info/project-info.component";
-import {ProjectBoardComponent} from "./project-board/project-board.component";
-import {IssueTypesComponent} from "./issue-types/issue-types.component";
+import {ProjectUsersComponent} from "./containers/project-users/project-users.component";
+import {ProjectInfoComponent} from "./containers/project-info/project-info.component";
+import {ProjectBoardComponent} from "./containers/project-board/project-board.component";
+import {IssueTypesComponent} from "./containers/issue-types/issue-types.component";
+import {BoardAddEditComponent} from "./containers/board-add-edit/board-add-edit.component";
 
 const routes: Routes = [{
 
@@ -15,15 +16,28 @@ const routes: Routes = [{
     {
       path: '',
       redirectTo: 'info',
-      pathMatch: 'full'
+      pathMatch: 'full',
     },
     {
       path: 'info',
-      component: ProjectInfoComponent
+      component: ProjectInfoComponent,
     },
     {
       path: 'boards',
-      component: ProjectBoardComponent
+      children: [
+        {
+          path:'',
+          component:ProjectBoardComponent,
+        },
+        {
+          path:'add',
+          component:BoardAddEditComponent,
+        },
+        {
+          path:'add/:id',
+          component:BoardAddEditComponent,
+        },
+      ]
     },
     {
       path: 'issue-types',
