@@ -14,6 +14,7 @@ import {BoardAddEditComponent} from "./containers/board-add-edit/board-add-edit.
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {CdkDropList} from "@angular/cdk/drag-drop";
+import { IssueTypeAddEditComponent } from './containers/issue-type-add-edit/issue-type-add-edit.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {CdkDropList} from "@angular/cdk/drag-drop";
     IssueTypesComponent,
     BoardAddEditComponent,
     ProjectUsersComponent,
+    IssueTypeAddEditComponent,
 
   ],
   imports: [
@@ -35,7 +37,8 @@ import {CdkDropList} from "@angular/cdk/drag-drop";
     MatTableModule,
     ReactiveFormsModule,
     MatInputModule,
-    CdkDropList
+    CdkDropList,
+    MatDialogModule
   ]
 })
 export class ProjectSettingModule { }

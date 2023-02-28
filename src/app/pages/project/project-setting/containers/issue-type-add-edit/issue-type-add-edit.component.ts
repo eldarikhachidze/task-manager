@@ -1,24 +1,26 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ETaskStatus} from "../../../../../core/enums/etask-status.enum";
-import {CdkDragDrop, moveItemInArray} from "@angular/cdk/drag-drop";
 import {BoardService} from "../../../../../core/services/board.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {CdkDragDrop, moveItemInArray} from "@angular/cdk/drag-drop";
+import {IssueTypeEnum} from "../../../../../core/enums/issue-type.enum";
 
 @Component({
-  selector: 'app-board-add-edit',
-  templateUrl: './board-add-edit.component.html',
-  styleUrls: ['./board-add-edit.component.scss']
+  selector: 'app-issue-type-add-edit',
+  templateUrl: './issue-type-add-edit.component.html',
+  styleUrls: ['./issue-type-add-edit.component.scss']
 })
-export class BoardAddEditComponent implements OnInit{
+export class IssueTypeAddEditComponent implements OnInit{
   form: FormGroup = new FormGroup({
     id: new FormControl(null),
     name: new FormControl(null, Validators.required),
-    position: new FormControl(1, Validators.required),
-    description: new FormControl(null, Validators.required),
-    columns: new FormArray([], Validators.required),
+    icon: new FormControl(null, Validators.required),
+    color: new FormControl(1, Validators.required),
+    type: new FormControl(null, Validators.required),
+    issueTypeColumns: new FormArray([], Validators.required),
   })
-  taskStatuses = Object.values(ETaskStatus);
+  issueTypes = Object.values(IssueTypeEnum);
 
   boardId!: number;
 
