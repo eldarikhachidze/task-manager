@@ -13,8 +13,9 @@ import {MatTableModule} from "@angular/material/table";
 import {BoardAddEditComponent} from "./containers/board-add-edit/board-add-edit.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
-import {CdkDropList} from "@angular/cdk/drag-drop";
+import {CdkDrag, CdkDropList} from "@angular/cdk/drag-drop";
 import { IssueTypeAddEditComponent } from './containers/issue-type-add-edit/issue-type-add-edit.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
 @NgModule({
@@ -38,7 +39,9 @@ import { IssueTypeAddEditComponent } from './containers/issue-type-add-edit/issu
     ReactiveFormsModule,
     MatInputModule,
     CdkDropList,
-    MatDialogModule
+    MatDialogModule,
+    CdkDrag,
+    MatCheckboxModule
   ]
 })
 export class ProjectSettingModule { }

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
-import {Board} from "../../../../../core/interfaces/board";
 import {of, Subject, switchMap, takeUntil} from "rxjs";
-import {BoardService} from "../../../../../core/services/board.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ConfirmationPopupComponent} from "../../../../../shared/confirmation-popup/confirmation-popup.component";
 import {IIssueType} from "../../../../../core/interfaces/issue-type";
@@ -24,14 +22,15 @@ export class IssueTypesComponent {
   ) {
   }
   ngOnInit(): void {
-    this.getIssueTypes()
+    this.getIssueTypes();
   }
+
   getIssueTypes() {
     this.issueTypeService.getIssueTypes()
       .pipe(takeUntil(this.sub$))
       .subscribe(boards => {
-        this.dataSource.data = boards
-      })
+        this.dataSource.data = boards;
+      });
   }
 
   addBoard() {
@@ -44,7 +43,7 @@ export class IssueTypesComponent {
   }
 
 
-  deleteIssueType(id: number) {
+  deleteBoard(id: number) {
     const dialogRef = this.dialog.open(ConfirmationPopupComponent);
     dialogRef.afterClosed()
       .pipe(

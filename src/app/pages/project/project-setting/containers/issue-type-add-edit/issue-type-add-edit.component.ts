@@ -5,6 +5,7 @@ import {BoardService} from "../../../../../core/services/board.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CdkDragDrop, moveItemInArray} from "@angular/cdk/drag-drop";
 import {IssueTypeEnum} from "../../../../../core/enums/issue-type.enum";
+import {IssueTypeService} from "../../../../../core/services/issue-type.service";
 
 @Component({
   selector: 'app-issue-type-add-edit',
@@ -22,13 +23,13 @@ export class IssueTypeAddEditComponent implements OnInit{
   })
   issueTypes = Object.values(IssueTypeEnum);
 
-  boardId!: number;
+  issueTypeId!: number;
 
   get columnsFormArray() {
-    return this.form.get('columns') as FormArray;
+    return this.form.get('issueTypeColumns') as FormArray;
   }
   constructor(
-    private boardService:BoardService,
+    private issueTypeService:IssueTypeService,
     private route: ActivatedRoute,
     private router: Router
   ) {
@@ -37,31 +38,29 @@ export class IssueTypeAddEditComponent implements OnInit{
   ngOnInit(): void {
     this.route.params.subscribe(params =>{
       if(params['id']) {
-        this.boardId = +params['id'];
+        this.issueTypeId = +params['id'];
         this.getBoard()
       }
     })
   }
   getBoard() {
-    this.boardService.getBoard(this.boardId).subscribe(res => {
+    this.issueTypeService.getIssueType(this.issueTypeId).subscribe(res => {
       this.form.patchValue(res)
-      res.columns.forEach(column =>{
+      res.issueTypeColumns.forEach(column =>{
         this.columnsFormArray.push(new FormGroup({
+          id: new FormControl(column.id, Validators.required),
           name: new FormControl(column.name, Validators.required),
-          position: new FormControl(column.position, Validators.required),
-          description: new FormControl(column.description, Validators.required),
-          taskStatus: new FormControl(column.taskStatus, Validators.required),
+          filedName: new FormControl(column.filedName, Validators.required),
+          isRequired: new FormControl(column.isRequired, Validators.required),
         }, Validators.required))
       })
     })
   }
   addColumn() {
     this.columnsFormArray.push(new FormGroup({
-      id: new FormControl(null),
       name: new FormControl(null, Validators.required),
-      description: new FormControl(null, Validators.required),
-      position: new FormControl(this.columnsFormArray.length + 1, Validators.required),
-      taskStatus: new FormControl(ETaskStatus.ToDo, Validators.required)
+      filedName: new FormControl(null, Validators.required),
+      isRequired: new FormControl(false, Validators.required),
     }, Validators.required));
   }
   save() {
@@ -69,15 +68,15 @@ export class IssueTypeAddEditComponent implements OnInit{
     if (this.form.invalid) {
       return;
     }
-    if (this.boardId) {
-      this.boardService.updateBoard(this.form.value)
+    if (this.issueTypeId) {
+      this.issueTypeService.updateIssueType(this.form.value)
         .subscribe( res => {
-          this.router.navigate(['/projects/setting/boards']).then()
+          this.router.navigate(['/projects/setting/issue-type']).then()
         })
     } else {
-      this.boardService.createBoard(this.form.value)
+      this.issueTypeService.createIssueType(this.form.value)
         .subscribe( res => {
-          this.router.navigate(['/projects/setting/boards']).then()
+          this.router.navigate(['/projects/setting/issue-type']).then()
         })
     }
 
