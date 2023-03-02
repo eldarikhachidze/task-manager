@@ -71,12 +71,12 @@ export class IssueTypeAddEditComponent implements OnInit{
     if (this.issueTypeId) {
       this.issueTypeService.updateIssueType(this.form.value)
         .subscribe( res => {
-          this.router.navigate(['/projects/setting/issue-type']).then()
+          this.router.navigate(['/projects/setting/issue-types']).then()
         })
     } else {
       this.issueTypeService.createIssueType(this.form.value)
         .subscribe( res => {
-          this.router.navigate(['/projects/setting/issue-type']).then()
+          this.router.navigate(['/projects/setting/issue-types']).then()
         })
     }
 
