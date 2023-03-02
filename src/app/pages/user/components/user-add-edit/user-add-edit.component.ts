@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnChanges, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../../../core/services/user.service";
@@ -14,7 +14,7 @@ export class UserAddEditComponent implements OnInit{
     id: new FormControl(null),
     firstName: new FormControl(null, [Validators.required]),
     lastName: new FormControl(null, [Validators.required]),
-    mobileNumber: new FormControl(null, [Validators.required]),
+    mobileNumber: new FormControl(null),
     email: new FormControl(null, [Validators.required, Validators.email]),
     identityNumber: new FormControl(null),
   });
@@ -23,7 +23,8 @@ export class UserAddEditComponent implements OnInit{
     public dialogRef: MatDialogRef<UserAddEditComponent>,
     private userService: UserService,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) { }
+  ) {
+  }
 
 
   ngOnInit(): void {
@@ -33,8 +34,10 @@ export class UserAddEditComponent implements OnInit{
           this.form.patchValue(res);
         })
     }
-  }
 
+
+
+}
   onSubmit() {
     this.form.markAllAsTouched()
     if (this.form.invalid) {
