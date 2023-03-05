@@ -1,4 +1,4 @@
-import {Component, Inject, OnChanges, OnInit} from '@angular/core';
+import {Component, Inject,  OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../../../core/services/user.service";
@@ -10,11 +10,12 @@ import {UserService} from "../../../../core/services/user.service";
   styleUrls: ['./user-add-edit.component.scss']
 })
 export class UserAddEditComponent implements OnInit{
+
   form: FormGroup = new FormGroup({
     id: new FormControl(null),
     firstName: new FormControl(null, [Validators.required]),
     lastName: new FormControl(null, [Validators.required]),
-    mobileNumber: new FormControl(null),
+    mobileNumber: new FormControl(null, [Validators.required]),
     email: new FormControl(null, [Validators.required, Validators.email]),
     identityNumber: new FormControl(null),
   });

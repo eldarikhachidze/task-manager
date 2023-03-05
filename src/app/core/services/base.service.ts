@@ -1,26 +1,24 @@
 import {inject, Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
 import {Observable} from "rxjs";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class BaseService {
   apiUrl: string = environment.apiUrl
   http: HttpClient = inject(HttpClient)
 
-  post<t>(url: string, body: any): Observable<t> {
-    return this.http.post<t>(this.apiUrl + url, body)
+  post<T>(url: string, data: any): Observable<T> {
+    return this.http.post<T>(this.apiUrl + url, data)
   }
-  get<T>(url: string, params?: any): Observable<T> {
-    return this.http.get<T>(this.apiUrl + url, {params: new HttpParams ({fromObject: params})})
+  get<T>(url: string, params= {}): Observable<T> {
+    return this.http.get<T>(this.apiUrl + url, {params: params })
   }
 
-  delete<t>(url: string): Observable<t> {
-    return this.http.delete<t>(this.apiUrl + url)
+  delete<T>(url: string): Observable<T> {
+    return this.http.delete<T>(this.apiUrl + url)
   }
-  put<t>(url: string, body?: any): Observable<t> {
-    return this.http.put<t>(this.apiUrl + url, body)
+  put<T>(url: string, data: any): Observable<T> {
+    return this.http.put<T>(this.apiUrl + url, data)
   }
 }

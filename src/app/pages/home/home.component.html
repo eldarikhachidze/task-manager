@@ -1,53 +1,71 @@
-<div class="home-content">
-<!--  <div class="side-bar d-flex flex-column flex-shrink-0 p-3 ">-->
-<!--    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">-->
-<!--      <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>-->
-<!--      <span class="fs-4">Sidebar</span>-->
-<!--    </a>-->
-<!--    <hr>-->
-<!--    <ul class="nav nav-pills flex-column mb-auto">-->
-<!--      <li class="nav-item">-->
-<!--        Home-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--    <hr>-->
-<!--    <div class="dropdown">-->
-<!--      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">-->
-<!--        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">-->
-<!--        <strong>mdo</strong>-->
-<!--      </a>-->
-<!--      <ul class="dropdown-menu dropdown-menu-dark text-small shadow">-->
-<!--        <li><a class="dropdown-item" href="#">New project...</a></li>-->
-<!--        <li><a class="dropdown-item" href="#">Settings</a></li>-->
-<!--        <li><a class="dropdown-item" href="#">Profile</a></li>-->
-<!--        <li><hr class="dropdown-divider"></li>-->
-<!--        <li><a class="dropdown-item" href="#">Sign out</a></li>-->
-<!--      </ul>-->
+<!--<div class="home-content">-->
+<!--&lt;!&ndash;  <div class="side-bar d-flex flex-column flex-shrink-0 p-3 ">&ndash;&gt;-->
+<!--&lt;!&ndash;    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">&ndash;&gt;-->
+<!--&lt;!&ndash;      <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>&ndash;&gt;-->
+<!--&lt;!&ndash;      <span class="fs-4">Sidebar</span>&ndash;&gt;-->
+<!--&lt;!&ndash;    </a>&ndash;&gt;-->
+<!--&lt;!&ndash;    <hr>&ndash;&gt;-->
+<!--&lt;!&ndash;    <ul class="nav nav-pills flex-column mb-auto">&ndash;&gt;-->
+<!--&lt;!&ndash;      <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;        Home&ndash;&gt;-->
+<!--&lt;!&ndash;      </li>&ndash;&gt;-->
+<!--&lt;!&ndash;    </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;    <hr>&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="dropdown">&ndash;&gt;-->
+<!--&lt;!&ndash;      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">&ndash;&gt;-->
+<!--&lt;!&ndash;        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">&ndash;&gt;-->
+<!--&lt;!&ndash;        <strong>mdo</strong>&ndash;&gt;-->
+<!--&lt;!&ndash;      </a>&ndash;&gt;-->
+<!--&lt;!&ndash;      <ul class="dropdown-menu dropdown-menu-dark text-small shadow">&ndash;&gt;-->
+<!--&lt;!&ndash;        <li><a class="dropdown-item" href="#">New project...</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <li><a class="dropdown-item" href="#">Settings</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <li><a class="dropdown-item" href="#">Profile</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <li><hr class="dropdown-divider"></li>&ndash;&gt;-->
+<!--&lt;!&ndash;        <li><a class="dropdown-item" href="#">Sign out</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;      </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--  <div class="home-nav">-->
+<!--    <div class="content">-->
+<!--      <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">-->
+<!--        <div class="nav-menu">-->
+<!--          <a class="logo-sc">-->
+<!--            <h1>project name</h1>-->
+<!--          </a>-->
+<!--          <ng-container *ngIf="currentProject">-->
+<!--            <button [routerLink]="['/projects/setting']" class="header-components" mat-button>Setting</button>-->
+<!--          </ng-container>-->
+<!--          <button [routerLink]="['/projects/add']" class="header-components" mat-button>Add </button>-->
+
+<!--          <div class="wrapper"></div>-->
+<!--          <div  [routerLink]="['/dashboard/board']" class="board">BOARD</div>-->
+<!--&lt;!&ndash;          <div class="header-components dropdown text-center">&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="nav-menu">-->
+<!--&lt;!&ndash;          <div class="header-components"></div>&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="header-components"></div>&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
 <!--    </div>-->
 <!--  </div>-->
-  <div class="home-nav">
-    <div class="content">
-      <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-        <div class="nav-menu">
-          <a class="logo-sc">
-            <h1>project name</h1>
-          </a>
-          <ng-container *ngIf="currentProject">
-            <button [routerLink]="['/projects/setting']" class="header-components" mat-button>Setting</button>
-          </ng-container>
-          <button [routerLink]="['/projects/add']" class="header-components" mat-button>Add </button>
+<!--</div>-->
+<div class="container">
+  <div class="sidebar">
+    <ul>
 
-          <div class="wrapper"></div>
-          <div  [routerLink]="['/dashboard/board']" class="board">BOARD</div>
-<!--          <div class="header-components dropdown text-center">-->
-<!--          </div>-->
-        </div>
-        <div class="nav-menu">
-<!--          <div class="header-components"></div>-->
-<!--          <div class="header-components"></div>-->
-        </div>
-      </div>
-    </div>
+    </ul>
   </div>
+  <div class="content">
+    <mat-grid-list cols="3" rowHeight="2:1">
+      <mat-grid-tile >
+        board 1
+      </mat-grid-tile>
+      <mat-grid-tile>board 2</mat-grid-tile>
+      <mat-grid-tile> board 3</mat-grid-tile>
+      <mat-grid-tile>board 4</mat-grid-tile>
+    </mat-grid-list>
+
 </div>
 
+</div>

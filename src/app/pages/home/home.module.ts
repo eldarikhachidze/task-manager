@@ -8,6 +8,7 @@ import {CommonModule} from "@angular/common";
 import {UserModule} from "../user/user.module";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {MatButtonModule} from "@angular/material/button";
         FormsModule,
         UserModule,
         MatDialogModule,
-        MatButtonModule
+        MatButtonModule,
+        MatGridListModule
     ]
 })
 export class HomeModule { }
