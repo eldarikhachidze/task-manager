@@ -16,6 +16,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { IssueTypesComponent } from './project-setting/containers/issue-types/issue-types.component';
 import { BoardAddEditComponent } from './project-setting/containers/board-add-edit/board-add-edit.component';
+import {DragDrop, DragDropModule} from "@angular/cdk/drag-drop";
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { BoardAddEditComponent } from './project-setting/containers/board-add-ed
     ProjectRoutingModule,
     MatSnackBarModule,
     MatSidenavModule,
-    MatButtonModule
+    MatButtonModule,
+    DragDropModule,
 
   ]})
 export class ProjectModule { }

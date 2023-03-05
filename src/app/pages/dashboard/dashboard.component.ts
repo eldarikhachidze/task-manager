@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {BoardService} from "../../core/services/board.service";
-
+import * as url from "url";
 
 
 @Component({
@@ -9,8 +9,9 @@ import {BoardService} from "../../core/services/board.service";
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   boards$ = this.boardService.getBoards();
+  boardId: number | null = null;
 
   constructor(
     private boardService: BoardService,
@@ -19,7 +20,9 @@ export class DashboardComponent {
   }
 
   ngOnInit(): void {
-
+    // this.route.url.subscribe( url => {
+    //   this.boardId = +url[1].path
+    // })
   }
 
 }
