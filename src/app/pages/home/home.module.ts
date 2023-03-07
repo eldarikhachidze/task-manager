@@ -21,7 +21,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
         MainLayoutModule,
         ProjectCardModule,
         FormsModule,
-        UserModule,
+        // UserModule,
         MatDialogModule,
         MatButtonModule,
         MatGridListModule

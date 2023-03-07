@@ -16,6 +16,8 @@ import {MatInputModule} from "@angular/material/input";
 import {CdkDrag, CdkDropList} from "@angular/cdk/drag-drop";
 import { IssueTypeAddEditComponent } from './containers/issue-type-add-edit/issue-type-add-edit.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import { ProjectEpicsComponent } from './containers/project-epics/project-epics.component';
+import { ProjectEpicAddEditComponent } from './containers/project-epic-add-edit/project-epic-add-edit.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     BoardAddEditComponent,
     ProjectUsersComponent,
     IssueTypeAddEditComponent,
+    ProjectEpicsComponent,
+    ProjectEpicAddEditComponent,
 
   ],
   imports: [

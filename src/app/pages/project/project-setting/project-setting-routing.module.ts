@@ -7,6 +7,8 @@ import {ProjectBoardComponent} from "./containers/project-board/project-board.co
 import {IssueTypesComponent} from "./containers/issue-types/issue-types.component";
 import {BoardAddEditComponent} from "./containers/board-add-edit/board-add-edit.component";
 import {IssueTypeAddEditComponent} from "./containers/issue-type-add-edit/issue-type-add-edit.component";
+import {ProjectEpicsComponent} from "./containers/project-epics/project-epics.component";
+import {ProjectEpicAddEditComponent} from "./containers/project-epic-add-edit/project-epic-add-edit.component";
 
 const routes: Routes = [{
 
@@ -57,6 +59,24 @@ const routes: Routes = [{
         },
       ]
     },
+    {
+      path: 'epics',
+      children: [
+        {
+          path: '',
+          component: ProjectEpicsComponent
+        },
+        {
+          path: 'add',
+          component: ProjectEpicAddEditComponent
+        },
+        {
+          path: 'edit/:id',
+          component: ProjectEpicAddEditComponent
+        },
+      ]
+    },
+
     {
       path: 'users',
       component: ProjectUsersComponent
