@@ -3,7 +3,7 @@ import {Project} from "./project";
 import {IIssueType} from "./issue-type";
 import {Epic} from "./epik";
 
-export interface ITask {
+export interface Task {
   id: number;
   name: string;
   description: string;

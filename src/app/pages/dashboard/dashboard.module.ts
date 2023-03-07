@@ -12,12 +12,13 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
+import {TaskAddEditComponent} from "./task-add-edit/task-add-edit.component";
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    BoardComponent
+    BoardComponent,
   ],
   imports: [
     CommonModule,

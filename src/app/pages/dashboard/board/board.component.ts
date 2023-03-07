@@ -2,8 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {BoardService} from "../../../core/services/board.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute} from "@angular/router";
-import {Board} from "../../../core/interfaces/board";
+import {Board, Column} from "../../../core/interfaces/board";
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
+import {TaskAddEditComponent} from "../task-add-edit/task-add-edit.component";
 
 @Component({
   selector: 'app-board',
@@ -73,7 +74,13 @@ export class BoardComponent implements OnInit {
   // viewTask(task: any, column: Column) {
   // }
 
-  addTask(id: number) {
-
+  addTask(column: Column) {
+    this.dialog.open(TaskAddEditComponent, {
+      width: '250px',
+      data: {
+        boardId: this.boardId,
+        column: column
+      }
+    })
   }
 }
