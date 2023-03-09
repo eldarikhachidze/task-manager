@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {BaseService} from "./base.service";
 import {Observable} from "rxjs";
 import {PaginationResponse} from "../interfaces/pagination-response";
-import {Epic} from "../interfaces/epik";
+import {Epic} from "../interfaces/epic";
 
 @Injectable({
   providedIn: 'root'

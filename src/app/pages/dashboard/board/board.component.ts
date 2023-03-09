@@ -76,7 +76,7 @@ export class BoardComponent implements OnInit {
 
   addTask(column: Column) {
     this.dialog.open(TaskAddEditComponent, {
-      width: '250px',
+      width: '1200px',
       data: {
         boardId: this.boardId,
         column: column

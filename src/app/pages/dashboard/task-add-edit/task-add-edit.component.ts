@@ -1,9 +1,15 @@
-import {Component, inject, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {TaskService} from "../../../core/services/task.service";
+import {Observable, shareReplay, Subject, takeUntil} from "rxjs";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Column} from "../../../core/interfaces/board";
-import {Subject, takeUntil} from "rxjs";
+import {IssueTypeService} from "../../../core/services/issue-type.service";
+import {EpicService} from "../../../core/services/epic.service";
+import {Epic} from "../../../core/interfaces/epic";
+import {IIssueType} from "../../../core/interfaces/issue-type";
+import {User} from "../../../core/interfaces";
+import {ProjectService} from "../../../core/services/project.service";
 
 @Component({
   selector: 'app-task-add-edit',
@@ -16,19 +22,30 @@ export class TaskAddEditComponent implements OnInit, OnDestroy {
     name: new FormControl(null, Validators.required),
     description: new FormControl(null, Validators.required),
     issueTypeId: new FormControl(null, Validators.required),
-    epicId: new FormControl(null, Validators.required),
+    epicId: new FormControl(null),
     boardId: new FormControl(null, Validators.required),
     boardColumnId: new FormControl(null, Validators.required),
-    isBacklog: new FormControl(true, Validators.required),
+    isBacklog: new FormControl(false, Validators.required),
     priority: new FormControl(null, Validators.required),
-    taskStatus: new FormControl(null, Validators.required),
-    assigneeId: new FormControl(null, Validators.required),
+    // taskStatus: new FormControl(null, Validators.required),
+    assigneeId: new FormControl(null),
     reporterId: new FormControl(null, Validators.required),
+    taskStatus: new FormControl(this.data.Column?.taskStatus, Validators.required),
     taskProperty: new FormArray([]),
   })
 
 
   sub$ = new Subject()
+  types$: Observable<IIssueType[]> = this.issueTypeService.getIssueTypes();
+  epics$: Observable<Epic[]> = this.epicService.getEpics();
+  users$: Observable<User[]> = this.projectService.getProjectUsers()
+    .pipe(shareReplay(2))
+  priorities: {id: 'Low' | 'Medium' | 'High', name: string}[] = [
+    {id:'Low', name: 'Low'},
+    {id:'Medium', name: 'Medium'},
+    {id:'High', name: 'High'}
+  ];
+
 
   get taskProperty() {
     return this.form.get('taskProperty') as FormArray;
@@ -36,21 +53,49 @@ export class TaskAddEditComponent implements OnInit, OnDestroy {
 
   constructor(
     private taskService: TaskService,
+    private issueTypeService: IssueTypeService,
+    private epicService: EpicService,
+    private projectService: ProjectService,
     public dialogRef: MatDialogRef<TaskAddEditComponent>,
-    @inject(MAT_DIALOG_DATA) public data: { taskId: number, boardId: number, boardColumn: Column}
+    @Inject(MAT_DIALOG_DATA) public  data: { taskId:number, boardId: number, Column: Column}
+
   ) {
   }
 
   ngOnInit(): void {
     if(this.data.taskId) {
       this.getTask(this.data.taskId)
+    } else {
+      this.form.get('issueTypeId')?.valueChanges
+        .pipe()
+        .subscribe((issueTypeId: number) => {
+          this.getIssueTypeProperties(issueTypeId)
+
+      })
     }
     if(this.data.boardId) {
       this.form.patchValue({boardId: this.data.boardId})
     }
-    if(this.data.boardColumn) {
-      this.form.patchValue({boardColumn: this.data.boardColumn.id})
+    if(this.data.Column) {
+      this.form.patchValue({boardColumn: this.data.Column.id})
     }
+  }
+
+  getIssueTypeProperties(issueTypeId: number) {
+    this.issueTypeService.getIssueType(issueTypeId)
+      .pipe(takeUntil(this.sub$))
+      .subscribe(res => {
+        this.taskProperty.clear();
+        res.issueTypeColumns.forEach(property => {
+          this.taskProperty.push(new FormGroup({
+            id: new FormControl(property.id),
+            name: new FormControl(property.name),
+            filedName: new FormControl(property.filedName),
+            value: new FormControl(null, property.isRequired ? Validators.required : null),
+            isRequired: new FormControl(property.isRequired),
+          }))
+        })
+      })
   }
 
   private getTask(taskId: number) {
@@ -58,7 +103,7 @@ export class TaskAddEditComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.sub$))
       .subscribe(res => {
         this.form.patchValue(res)
-        res.taskProperty.forEach(property =>{
+        res.taskProperty.forEach(property => {
           this.taskProperty.push(new FormGroup({
             id: new FormControl(property.id),
             name: new FormControl(property.name, Validators.required),
@@ -80,7 +125,7 @@ export class TaskAddEditComponent implements OnInit, OnDestroy {
         .subscribe(res => {
         this.dialogRef.close(res)
       })
-    }else {
+    } else {
       this.taskService.createTask(this.form.value)
         .pipe(takeUntil(this.sub$))
         .subscribe( res => {

@@ -1,14 +1,19 @@
-import {IssueTypeEnum} from "../enums/issue-type.enum";
+
 
 export interface IIssueType {
-    name: string;
-    description: string;
-    icon: string;
-    color: string;
-    isActive: boolean;
-    type: IssueTypeEnum;
-    issueTypeColumns: IssueTypeColumn[];
+  id: number;
+  name: string;
+  description: string;
+  icon: string;
+  color: string;
+  isActive: boolean;
+  type: string;
+  issueTypeColumns: IssueTypeColumn[];
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt: Date;
 }
+
 export interface IssueTypeColumn {
   id: number;
   name: string;

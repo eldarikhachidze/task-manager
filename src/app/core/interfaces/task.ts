@@ -1,7 +1,7 @@
 import {User} from "./user";
 import {Project} from "./project";
 import {IIssueType} from "./issue-type";
-import {Epic} from "./epik";
+import {Epic} from "./epic";
 
 export interface Task {
   id: number;

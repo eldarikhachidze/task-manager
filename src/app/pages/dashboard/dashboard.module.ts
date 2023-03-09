@@ -19,6 +19,7 @@ import {TaskAddEditComponent} from "./task-add-edit/task-add-edit.component";
   declarations: [
     DashboardComponent,
     BoardComponent,
+    TaskAddEditComponent,
   ],
   imports: [
     CommonModule,

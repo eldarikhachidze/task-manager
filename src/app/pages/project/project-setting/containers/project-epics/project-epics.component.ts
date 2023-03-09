@@ -4,7 +4,7 @@ import {of, Subject, switchMap, takeUntil} from "rxjs";
 import {MatDialog} from "@angular/material/dialog";
 import {ConfirmationPopupComponent} from "../../../../../shared/confirmation-popup/confirmation-popup.component";
 import {EpicService} from "../../../../../core/services/epic.service";
-import {Epic} from "../../../../../core/interfaces/epik";
+import {Epic} from "../../../../../core/interfaces/epic";
 
 @Component({
   selector: 'app-project-epics',

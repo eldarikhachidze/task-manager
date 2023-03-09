@@ -24,14 +24,17 @@ const routes: Routes = [
       },
       {
         path: 'projects',
+        canActivate: [AuthGuard],
         loadChildren: () => import('./pages/project/project.module').then(m => m.ProjectModule)
       },
       {
         path: 'users',
+        canActivate: [AuthGuard],
         loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule)
       },
       {
         path: 'dashboard',
+        canActivate: [AuthGuard],
         loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
       // {

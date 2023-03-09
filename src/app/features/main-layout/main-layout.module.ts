@@ -13,6 +13,7 @@ import {CdkMenu, CdkMenuItem, CdkMenuTrigger} from "@angular/cdk/menu";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatSelectModule} from "@angular/material/select";
 import {CdkListbox} from "@angular/cdk/listbox";
+import {MatDividerModule} from "@angular/material/divider";
 
 
 
@@ -34,7 +35,8 @@ import {CdkListbox} from "@angular/cdk/listbox";
         CdkMenuItem,
         MatMenuModule,
         MatSelectModule,
-        CdkListbox
+        CdkListbox,
+        MatDividerModule
     ],
   exports: [
     MainLayoutComponent,

@@ -1,13 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-
-import { CookiesService } from './cookies.service';
+import {CookieService} from "ngx-cookie-service";
 
 describe('CookieService', () => {
-  let service: CookiesService;
+  let service: CookieService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CookiesService);
+    service = TestBed.inject(CookieService);
   });
 
   it('should be created', () => {
