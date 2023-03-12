@@ -11,6 +11,7 @@ import {UsersComponent} from "./components/users/users.component";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
+import {UserRoleComponent} from "./components/user-role/user-role.component";
 
 
 
@@ -18,6 +19,7 @@ import {MatButtonModule} from "@angular/material/button";
   declarations: [
     UserAddEditComponent,
     UsersComponent,
+    UserRoleComponent
   ],
   imports: [
     CommonModule,
