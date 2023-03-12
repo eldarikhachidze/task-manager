@@ -1,0 +1,34 @@
+
+
+.container {
+  margin: 2% auto;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+
+  .group {
+
+
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+
+    .group-name{
+      font-weight: bold;
+      font-size: 18px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+
+
+    }
+
+    .permission {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+
+    }
+  }
+}
