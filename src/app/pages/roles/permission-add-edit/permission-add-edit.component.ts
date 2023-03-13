@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {RoleService} from "../../../core/services/role.service";
 import * as _ from 'lodash';
 
@@ -18,7 +18,8 @@ export class PermissionAddEditComponent implements OnInit  {
 
   constructor(
     private roleService: RoleService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
   }
 
@@ -67,6 +68,7 @@ export class PermissionAddEditComponent implements OnInit  {
       roleId: this.roleId,
       permissions: Array.from(this.permissions)
     }).subscribe(res => {
+      this.router.navigate(['roles']).then()
       console.log(res)
     })
   }
