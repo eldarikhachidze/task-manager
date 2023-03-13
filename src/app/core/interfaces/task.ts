@@ -31,10 +31,10 @@ export interface Task {
   createdAt: Date;
   updatedAt: Date;
   deletedAt: Date;
-  taskProperty: TaskProperty[];
+  taskProperty: taskProperty[];
 }
 
-export interface TaskProperty {
+export interface taskProperty {
   id: number;
   name: string;
   filedName: string;

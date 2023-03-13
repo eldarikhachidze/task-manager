@@ -9,17 +9,19 @@ import {AuthInterceptor} from "./core/interceptors/auth.interceptor";
 import {CookieService} from "ngx-cookie-service";
 import {ProjectInterceptor} from "./core/interceptors/project.interceptor";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AccessDeniedComponent } from './pages/access-denied/access-denied.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     MainLayoutModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AccessDeniedComponent
   ],
   providers: [
     {

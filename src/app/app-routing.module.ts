@@ -38,11 +38,20 @@ const routes: Routes = [
         loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
       {
+        path: 'backlog',
+        canActivate: [AuthGuard],
+        loadComponent: () => import('./pages/backlog/backlog.component').then(m => m.BacklogComponent)
+      },
+      {
         path: 'roles',
+        canActivate: [AuthGuard],
         loadChildren: () => import('./pages/roles/roles.module').then(m => m.RolesModule)
       }
     ]
-
+  },
+  {
+    path:'access-denied',
+    loadComponent: () => import('./pages/access-denied/access-denied.component').then(m => m.AccessDeniedComponent)
   }
 ];
 
