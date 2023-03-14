@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
   submit() {
     this.form.markAllAsTouched()
     if (this.form.invalid) return
-
    this.authService.login(this.form.value).subscribe((res) => {
       this.cookieStorageService.setCookie('accessToken', res.token.accessToken, 1)
       this.cookieStorageService.setCookie('refreshToken', res.token.refreshToken, 1)
