@@ -1,28 +1,27 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatButtonModule} from "@angular/material/button";
 import {MatTableDataSource, MatTableModule} from "@angular/material/table";
 import {RouterModule} from "@angular/router";
 import {of, Subject, switchMap, takeUntil} from "rxjs";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
-import {ConfirmationPopupComponent} from "../../shared/confirmation-popup/confirmation-popup.component";
 import {TaskService} from "../../core/services/task.service";
+import {Task} from "../../core/interfaces/task";
+import {ConfirmationPopupComponent} from "../../shared/confirmation-popup/confirmation-popup.component";
 import {TaskAddEditComponent} from "../../shared/task-add-edit/task-add-edit.component";
 
 @Component({
   selector: 'app-backlog',
   standalone: true,
-  imports: [CommonModule, MatButtonModule, MatTableModule, RouterModule, MatDialogModule,],
+  imports: [CommonModule, MatButtonModule, RouterModule, MatTableModule, MatDialogModule,],
   templateUrl: './backlog.component.html',
   styleUrls: ['./backlog.component.scss']
 })
-export class BacklogComponent implements OnInit {
-
+export class BacklogComponent implements OnInit, OnDestroy {
   displayedColumns = ['id', 'name', 'issueType', 'epic', 'createdAt', 'actions'];
 
-  // dataSource = new MatTableDataSource<Task>();
+  dataSource = new MatTableDataSource<Task>()
 
-  dataSource = new MatTableDataSource<Task>();
   sub$ = new Subject();
 
   constructor(
@@ -42,9 +41,9 @@ export class BacklogComponent implements OnInit {
       isBacklog: true
     })
       .pipe(takeUntil(this.sub$))
-      .subscribe(boards => {
-        // this.dataSource.data = boards
-      })
+      .subscribe( boards =>{
+        this.dataSource.data = boards
+      });
   }
 
   addBoard() {

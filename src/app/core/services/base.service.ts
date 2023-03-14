@@ -14,7 +14,9 @@ export class BaseService {
     })
   }
   get<T>(url: string, params= {}): Observable<T> {
-    return this.http.get<T>(this.apiUrl + url, {params: params })
+    return this.http.get<T>(this.apiUrl + url, {
+      params: params
+    })
   }
 
   delete<T>(url: string): Observable<T> {

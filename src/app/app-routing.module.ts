@@ -28,6 +28,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/project/project.module').then(m => m.ProjectModule)
       },
       {
+        path:'backlog',
+        loadComponent: () => import('./pages/backlog/backlog.component').then(m => m.BacklogComponent)
+      },
+      {
         path: 'users',
         canActivate: [AuthGuard],
         loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule)
