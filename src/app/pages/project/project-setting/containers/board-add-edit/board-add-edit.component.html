@@ -10,7 +10,7 @@
         <input matInput placeholder="Description" formControlName="description">
       </mat-form-field>
       <button mat-raised-button color="primary" (click)="addColumn()">Add Column</button>
-      <button mat-raised-button color="primary" (click)="save()">Save</button>
+      <button [disabled]="form.invalid" mat-raised-button color="primary" (click)="save()">Save</button>
     </div>
     <div class="columns" formArrayName="columns" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
       <!--      <div *cdkDragPreview class="preview"></div>-->

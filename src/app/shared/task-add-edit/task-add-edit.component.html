@@ -69,7 +69,7 @@
   </div>
   <div mat-dialog-actions>
     <button mat-button (click)="dialogRef.close()" >Cancel</button>
-    <button mat-button (click)="save()">Create</button>
+    <button [disabled]="form.invalid" mat-button (click)="save()">Save</button>
   </div>
   </div>
 </div>

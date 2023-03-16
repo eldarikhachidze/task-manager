@@ -1,18 +1,20 @@
-<h3>ProjectInfo</h3>
-<mat-list>
-  <mat-list-item>
-    <span matListItemTitle>Name</span>
-    <span matListItemLine [ngStyle]="{
+<div class="content">
+  <h3>{{project.name}}</h3>
+  <mat-list>
+    <mat-list-item>
+      <span matListItemTitle>Name</span>
+      <span matListItemLine [ngStyle]="{
     'color': project.color,
     'font-weight': 'bold'
     }
 ">{{project.name}} {{project.abbreviation}}</span>
-  </mat-list-item>
-  <mat-list-item>
-    <span matListItemTitle>Description</span>
-    <span matListItemLine>{{project.description}}</span>
-  </mat-list-item>
-</mat-list>
-<mat-divider></mat-divider>
-<button mat-raised-button color="primary" [routerLink]="['/projects/edit', project.id]">Edit</button>
+    </mat-list-item>
+    <mat-list-item>
+      <span matListItemTitle>Description</span>
+      <span matListItemLine>{{project.description}}</span>
+    </mat-list-item>
+  </mat-list>
+  <mat-divider></mat-divider>
+  <button mat-raised-button color="primary"  [routerLink]="['/projects/edit', project.id]">Edit</button>
+</div>
 

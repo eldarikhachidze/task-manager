@@ -94,17 +94,20 @@ export class BoardComponent implements OnInit {
         this.getTasks()
       })
     }
+
+
   }
   addTask(column: Column) {
-    const dialogRef = this.dialog.open(TaskAddEditComponent, {
+    const  dialogRef = this.dialog.open(TaskAddEditComponent, {
       width: '1200px',
       data: {
         boardId: this.boardId,
         column: column
-      }
+      },
     });
+
     dialogRef.afterClosed().subscribe((task: Task) => {
-      if(task) {
+      if (task) {
         this.getTasks()
       }
     })
@@ -112,14 +115,13 @@ export class BoardComponent implements OnInit {
 
   private getTasks() {
     this.taskService.getTasks({boardId: this.boardId}).subscribe(tasks => {
-      console.log(tasks)
       this.tasks = _.groupBy(tasks, 'boardColumnId')
     })
   }
 
   viewTask(task: Task, column: Column) {
     const  dialogRef = this.dialog.open(TaskAddEditComponent, {
-      width: '1200px',
+      width: '1000px',
       data: {
         boardId: this.boardId,
         column: column,

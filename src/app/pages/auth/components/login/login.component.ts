@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       this.cookieStorageService.setCookie('accessToken', res.token.accessToken, 1)
       this.cookieStorageService.setCookie('refreshToken', res.token.refreshToken, 1)
      localStorage.setItem('user', JSON.stringify(res.user))
-     this.router.navigate(['home'])
+     this.router.navigate(['/'])
     })
   }
 
