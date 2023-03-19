@@ -14,6 +14,8 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatSelectModule} from "@angular/material/select";
 import {CdkListbox} from "@angular/cdk/listbox";
 import {MatDividerModule} from "@angular/material/divider";
+import {MatLegacyListModule} from "@angular/material/legacy-list";
+import {MatIconModule} from "@angular/material/icon";
 
 
 
@@ -36,7 +38,9 @@ import {MatDividerModule} from "@angular/material/divider";
         MatMenuModule,
         MatSelectModule,
         CdkListbox,
-        MatDividerModule
+        MatDividerModule,
+        MatLegacyListModule,
+        MatIconModule
     ],
   exports: [
     MainLayoutComponent,

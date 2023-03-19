@@ -6,6 +6,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {CookieService} from "ngx-cookie-service";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -14,12 +16,14 @@ import {CookieService} from "ngx-cookie-service";
     LoginComponent,
     RegisterComponent
   ],
-    imports: [
-        CommonModule,
-        AuthRoutingModule,
-        ReactiveFormsModule,
+  imports: [
+    CommonModule,
+    AuthRoutingModule,
+    ReactiveFormsModule,
+    MatDividerModule,
+    MatButtonModule,
 
-    ],
+  ],
   providers:[
     CookieService
   ]
