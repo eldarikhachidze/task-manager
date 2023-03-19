@@ -18,7 +18,7 @@ export class TaskService extends BaseService{
     return this.post(`task`, data)
   }
   updateTask(id: number, data: any): Observable<Task> {
-    return this.get<Task>(`task/${id}`, data)
+    return this.put<Task>(`task/${id}`, data)
   }
   deleteTask(id: number): Observable<any> {
     return this.delete<Task>(`task/${id}`)

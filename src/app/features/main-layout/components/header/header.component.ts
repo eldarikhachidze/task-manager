@@ -4,6 +4,7 @@ import {AuthFacade} from "../../../../core/facades/auth.service";
 import {Project} from "../../../../core/interfaces/project";
 import {ProjectService} from "../../../../core/services/project.service";
 import {ProjectFacade} from "../../../../core/facades/project.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -28,6 +29,7 @@ export class HeaderComponent implements OnInit {
     private  authService: AuthService,
     private projectService: ProjectService,
     private projectFacade: ProjectFacade,
+    private router: Router,
     private authFacade: AuthFacade,
   ) { }
 
@@ -43,6 +45,7 @@ export class HeaderComponent implements OnInit {
 
   selectProject(projectId: any) {
     this.projectFacade.setProject(projectId)
+    this.router.navigate(['/dashboard/id'])
   }
   getMyProjects() {
     this.projectFacade.getMyProjects$().subscribe()

@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
 
   currentProject?: Project = this.projectFacade.getProject()
-  projects$ = this.projectFacade.myProjects$;
+  projects$ = this.projectService.getAllProjects();
   constructor(
     private projectService: ProjectService,
     private projectFacade: ProjectFacade,
