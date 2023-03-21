@@ -1,4 +1,6 @@
-<header>
+<header [ngStyle]="{
+    'background-color': project.color
+    }" >
   <div class="container ">
     <div class="d-flex flex-wrap align-items-center  justify-content-between  gap-3">
       <a routerLink="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none logo ">
@@ -6,9 +8,9 @@
       </a>
       <ng-container *ngIf="isAuth; else notAuth">
 
-        <form class=" col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="pr-color form-control search" placeholder="Search..." aria-label="Search">
-        </form>
+<!--        <form class=" col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">-->
+<!--          <input type="search" class="pr-color form-control search" placeholder="Search..." aria-label="Search">-->
+<!--        </form>-->
         <div class="nav-menu">
 
           <ng-container *ngIf="currentProject">

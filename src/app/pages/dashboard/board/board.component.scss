@@ -3,8 +3,18 @@
   margin: 10px;
   flex-direction: column;
   gap: 20px;
+  max-width: 100%;
 
-
+.board-name{
+  //border: 1px solid black;
+  border-radius: 5px;
+  width: 300px;
+  margin: auto;
+  text-transform: uppercase;
+  font-weight: bolder;
+  padding: 5px;
+  font-size: 40px;
+}
   .columns {
     display: flex;
     gap: 20px;

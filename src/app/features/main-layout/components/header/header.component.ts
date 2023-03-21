@@ -50,4 +50,7 @@ export class HeaderComponent implements OnInit {
   getMyProjects() {
     this.projectFacade.getMyProjects$().subscribe()
   }
+  get project(): Project {
+    return this.projectFacade.getProject()
+  }
 }

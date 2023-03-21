@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {BoardService} from "../../core/services/board.service";
-import * as url from "url";
+
+import {Project} from "../../core/interfaces/project";
+import {ProjectFacade} from "../../core/facades/project.service";
 
 
 @Component({
@@ -12,10 +14,14 @@ import * as url from "url";
 export class DashboardComponent implements OnInit {
   boards$ = this.boardService.getBoards();
   boardId: number | null = null;
+  get project(): Project {
+    return this.projectFacade.getProject()
+  }
 
   constructor(
     private boardService: BoardService,
     private route: ActivatedRoute,
+    private readonly projectFacade: ProjectFacade,
   ) {
   }
 

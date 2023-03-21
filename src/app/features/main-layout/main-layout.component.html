@@ -1,6 +1,11 @@
-<div class="main-layout ">
+
+<div class="main-layout
+" [ngStyle]="{
+    'background-color': getColorWithOpacity(bodyColor, 0.3)
+
+    }">
   <app-header></app-header>
-  <div class="content">
+  <div class="content"  >
     <router-outlet></router-outlet>
   </div>
 </div>

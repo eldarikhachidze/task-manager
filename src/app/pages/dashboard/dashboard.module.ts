@@ -12,7 +12,7 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
-import {TaskAddEditComponent} from "../../shared/task-add-edit/task-add-edit.component";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -20,17 +20,18 @@ import {TaskAddEditComponent} from "../../shared/task-add-edit/task-add-edit.com
     DashboardComponent,
     BoardComponent,
   ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule,
-    DragDropModule,
-    MatDialogModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatDividerModule
-  ]
+    imports: [
+        CommonModule,
+        DashboardRoutingModule,
+        DragDropModule,
+        MatDialogModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatDividerModule,
+        MatIconModule
+    ]
 })
 export class DashboardModule { }
