@@ -3,6 +3,7 @@ import {RoleService} from "../../../core/services/role.service";
 import {Role} from "../../../core/interfaces/role";
 import {MatTableDataSource} from "@angular/material/table";
 import {PageEvent} from "@angular/material/paginator";
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-roles',
@@ -10,10 +11,10 @@ import {PageEvent} from "@angular/material/paginator";
   styleUrls: ['./roles.component.scss']
 })
 export class RolesComponent  implements OnInit{
-  dataSource= new MatTableDataSource<Role>();
-
 
   displayedColumns = ['id', 'name', 'createdAt', 'actions'];
+  dataSource= new MatTableDataSource<Role>();
+  sub$ = new Subject;
   pageIndex  = 1;
   total = 0;
   pageSize = 10;
@@ -26,14 +27,14 @@ export class RolesComponent  implements OnInit{
   }
 
  getRoles() {
-    this.roleService.getRoles({
-      page: this.pageIndex,
-      limit: this.pageSize
-    })
-      .subscribe(roles => {
-        this.dataSource.data = roles.data;
-        this.total = roles.totalCount;
-      });
+   this.roleService.getRoles({
+     page: this.pageIndex,
+     limit: this.pageSize
+   })
+     .subscribe(roles => {
+       this.dataSource.data = roles.data;
+       this.total = roles.totalCount
+     });
   }
 
   addRole(id?: number) {
@@ -45,7 +46,6 @@ export class RolesComponent  implements OnInit{
   }
 
   pageEvent($event: PageEvent) {
-    console.log($event)
     this.pageIndex = $event.pageIndex + 1;
     this.pageSize = $event.pageSize;
     this.getRoles()
