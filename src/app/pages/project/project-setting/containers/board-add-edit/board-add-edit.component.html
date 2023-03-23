@@ -1,6 +1,6 @@
-<div>
+<div class="container">
   <form [formGroup]="form">
-    <div>
+    <div class="form-container">
       <mat-form-field>
         <mat-label>Name</mat-label>
         <input matInput placeholder="Name" formControlName="name">
@@ -17,7 +17,6 @@
       <div *ngFor="let column of columnsFormArray.controls; let i = index" class="item" cdkDrag>
         <div class="item-placeholder" *cdkDragPlaceholder></div>
         <div class="item-preview" *cdkDragPreview>
-          dfgsdfgs
         </div>
         <div [formGroupName]="i">
           <mat-form-field>

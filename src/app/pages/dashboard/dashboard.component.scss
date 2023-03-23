@@ -5,11 +5,12 @@
 //}
 .container {
   display: flex;
+  margin: 10px;
  MAX-width: 100%;
   MAX-height: 100vh;
 }
   .sidebar {
-    flex: 0 0 300px;
+    flex: 0 0 250px;
     display: flex;
     flex-direction: column;
     gap: 20px;
