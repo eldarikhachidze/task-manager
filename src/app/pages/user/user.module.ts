@@ -12,6 +12,7 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {UserRoleComponent} from "./components/user-role/user-role.component";
+import {PermissionsDirective} from "../../core/directives/permissions.directive";
 
 
 
@@ -21,19 +22,20 @@ import {UserRoleComponent} from "./components/user-role/user-role.component";
     UsersComponent,
     UserRoleComponent
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    FormsModule,
-    UserRoutingModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatDialogModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSelectModule,
-  ],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        FormsModule,
+        UserRoutingModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatSelectModule,
+        PermissionsDirective,
+    ],
   exports: [
     UserAddEditComponent
   ],

@@ -28,7 +28,7 @@
           <mat-menu  #beforeMenu="matMenu" xPosition="before">
 
             <button mat-menu-item [routerLink]="['/dashboard']">Dashboard</button>
-            <button mat-menu-item [routerLink]="['/users']">Users</button>
+            <button mat-menu-item [routerLink]="['/users']" [appPermissions]="['user:list']">Users</button>
             <button mat-menu-item [routerLink]="['/roles']">Roles</button>
             <button mat-menu-item [routerLink]="['/backlog']">Backlog</button>
             <mat-divider></mat-divider>

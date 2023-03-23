@@ -6,7 +6,7 @@ import {CommonModule} from "@angular/common";
   templateUrl: './access-denied.component.html',
   styleUrls: ['./access-denied.component.scss'],
   standalone: true,
-  imports: [CommonModule, ]
+  imports: [CommonModule]
 })
 export class AccessDeniedComponent {
 

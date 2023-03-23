@@ -29,10 +29,8 @@ export class MainLayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    this.projectService.getProject( this.project.id).subscribe(data=>{
+    this.projectService.getProject(this.project.id).subscribe(data=>{
       this.bodyColor = data.color
-
     })
 
   }

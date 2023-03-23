@@ -14,6 +14,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import {MatSelectModule} from "@angular/material/select";
 import {CdkListbox} from "@angular/cdk/listbox";
 import {MatDividerModule} from "@angular/material/divider";
+import {PermissionsDirective} from "../../core/directives/permissions.directive";
 
 
 
@@ -36,7 +37,8 @@ import {MatDividerModule} from "@angular/material/divider";
         MatMenuModule,
         MatSelectModule,
         CdkListbox,
-        MatDividerModule
+        MatDividerModule,
+        PermissionsDirective,
     ],
   exports: [
     MainLayoutComponent,

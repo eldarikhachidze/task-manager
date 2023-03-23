@@ -35,8 +35,6 @@ export class UserAddEditComponent implements OnInit {
           this.form.patchValue(res);
         })
     }
-
-
   }
 
   onSubmit() {
