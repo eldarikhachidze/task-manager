@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import {MainLayoutComponent} from "./features/main-layout/main-layout.component";
 import {AuthGuard} from "./core/guards/auth.guard";
 import {PermissionGuard} from "./core/guards/permission.guard";
-// import {PermissionGuard} from "./core/guards/permission.guard";
 
 const routes: Routes = [
   {
