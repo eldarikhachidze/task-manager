@@ -1,7 +1,7 @@
 <div class="container">
   <div class="sidebar" [ngStyle]="{
-    'background-color': project.color
-    }">
+'background-color': project.color
+}">
     <div class="brd"> <h2> your boards </h2> <h2><mat-icon routerLink="/projects/setting/boards/add">add</mat-icon></h2> </div>
     <ul>
       <li *ngFor="let board of boards$ |async">
@@ -20,3 +20,4 @@
 <!--&lt;!&ndash;    </div>&ndash;&gt;-->
 <!--  </div>-->
 </div>
+

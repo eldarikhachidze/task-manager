@@ -1,11 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
-import {ETaskStatus} from "../../../../../core/enums/etask-status.enum";
-import {BoardService} from "../../../../../core/services/board.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {CdkDragDrop, moveItemInArray} from "@angular/cdk/drag-drop";
-import {IssueTypeEnum} from "../../../../../core/enums/issue-type.enum";
 import {IssueTypeService} from "../../../../../core/services/issue-type.service";
+import {IssueTypeEnum} from "../../../../../core/enums/issue-type.enum";
 
 @Component({
   selector: 'app-issue-type-add-edit',
@@ -28,34 +25,36 @@ export class IssueTypeAddEditComponent implements OnInit{
   get columnsFormArray() {
     return this.form.get('issueTypeColumns') as FormArray;
   }
+
   constructor(
-    private issueTypeService:IssueTypeService,
-    private route: ActivatedRoute,
-    private router: Router
-  ) {
-  }
+    private readonly issueTypeService: IssueTypeService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params =>{
-      if(params['id']) {
+    this.route.params.subscribe(params => {
+      if (params['id']) {
         this.issueTypeId = +params['id'];
         this.getBoard()
       }
     })
   }
+
   getBoard() {
     this.issueTypeService.getIssueType(this.issueTypeId).subscribe(res => {
       this.form.patchValue(res)
-      res.issueTypeColumns.forEach(column =>{
+      res.issueTypeColumns.forEach(column => {
         this.columnsFormArray.push(new FormGroup({
-          id: new FormControl(column.id, Validators.required),
+          id: new FormControl(column.id),
           name: new FormControl(column.name, Validators.required),
           filedName: new FormControl(column.filedName, Validators.required),
-          isRequired: new FormControl(column.isRequired, Validators.required),
-        }, Validators.required))
+          isRequired: new FormControl(column.isRequired, Validators.required)
+        }, Validators.required));
       })
     })
   }
+
   addColumn() {
     this.columnsFormArray.push(new FormGroup({
       name: new FormControl(null, Validators.required),
@@ -63,6 +62,8 @@ export class IssueTypeAddEditComponent implements OnInit{
       isRequired: new FormControl(false, Validators.required),
     }, Validators.required));
   }
+
+
   save() {
     this.form.markAllAsTouched()
     if (this.form.invalid) {
@@ -83,12 +84,8 @@ export class IssueTypeAddEditComponent implements OnInit{
 
   }
 
-  drop(event: CdkDragDrop<any, any>) {
-    moveItemInArray(this.columnsFormArray.controls, event.previousIndex, event.currentIndex);
-    console.log(this.columnsFormArray.controls)
-    this.columnsFormArray.controls.forEach((control, index) => {
-      control.get('position')?.setValue(index + 1)
-    })
+  removeColumn(i: number) {
+    this.columnsFormArray.removeAt(i);
   }
 
 }

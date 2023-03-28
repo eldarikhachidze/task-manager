@@ -1,17 +1,14 @@
 <header [ngStyle]="{
-    'background-color': project.color
-    }" >
+'background-color': project.color
+}" >
   <div class="container ">
     <div class="d-flex flex-wrap align-items-center  justify-content-between  gap-3">
       <a routerLink="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none logo ">
         <h1 class="logo-pr">ACTIVE</h1>
       </a>
       <ng-container *ngIf="isAuth; else notAuth">
-
-<!--        <form class=" col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">-->
-<!--          <input type="search" class="pr-color form-control search" placeholder="Search..." aria-label="Search">-->
-<!--        </form>-->
         <div class="nav-menu">
+
 
           <ng-container *ngIf="currentProject">
 
@@ -22,6 +19,15 @@
           <button [routerLink]="['/projects/add']" class="btn btn-primary ">create</button>
           <!--          <div class="container">-->
 
+
+          <button class="btn btn-primary" >
+            <select
+              [ngModel]="currentProject?.id" (ngModelChange)="selectProject($event)" class="dropdown-item">
+              <option class="clr" *ngFor="let project of projects$ | async" [value]="project.id">
+                {{project.name}}
+              </option>
+            </select>
+          </button>
           <button mat-icon-button [matMenuTriggerFor]="beforeMenu"><span class="material-icons">arrow_drop_down</span>
 
           </button>
@@ -34,14 +40,6 @@
             <mat-divider></mat-divider>
             <button mat-menu-item (click)="logout()">Logout</button>
           </mat-menu>
-          <button class="btn btn-primary" >
-            <select
-              [ngModel]="currentProject?.id" (ngModelChange)="selectProject($event)" class="dropdown-item">
-              <option *ngFor="let project of projects$ | async" [value]="project.id">
-                {{project.name}}
-              </option>
-            </select>
-          </button>
         </div>
       </ng-container>
       <ng-template #notAuth>

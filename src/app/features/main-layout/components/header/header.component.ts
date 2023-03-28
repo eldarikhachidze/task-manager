@@ -45,7 +45,7 @@ export class HeaderComponent implements OnInit {
 
   selectProject(projectId: any) {
     this.projectFacade.setProject(projectId)
-    this.router.navigate(['/dashboard/id'])
+    // this.router.navigate(['/dashboard/id'])
   }
   getMyProjects() {
     this.projectFacade.getMyProjects$().subscribe()

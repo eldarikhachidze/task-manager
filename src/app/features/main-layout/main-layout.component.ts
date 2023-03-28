@@ -20,13 +20,13 @@ export class MainLayoutComponent implements OnInit {
   ) {
 
   }
-  // getColorWithOpacity(color: string, opacity: number): string {
-  //   // const rgbaColor = color.replace('#', '');
-  //   const r = parseInt(rgbaColor.substring(0, 2), 16);
-  //   const g = parseInt(rgbaColor.substring(2, 4), 16);
-  //   const b = parseInt(rgbaColor.substring(4, 6), 16);
-  //   return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-  // }
+  getColorWithOpacity(color: string, opacity: number): string {
+    const rgbaColor = color.replace('#', '');
+    const r = parseInt(rgbaColor.substring(0, 2), 16);
+    const g = parseInt(rgbaColor.substring(2, 4), 16);
+    const b = parseInt(rgbaColor.substring(4, 6), 16);
+    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+  }
 
   ngOnInit(): void {
     this.projectService.getProject(this.project.id).subscribe(data=>{
