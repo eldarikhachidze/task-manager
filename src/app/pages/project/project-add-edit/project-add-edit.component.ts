@@ -4,7 +4,6 @@ import {ProjectService} from "../../../core/services/project.service";
 import {Subject, switchMap, takeUntil, tap} from "rxjs";
 import {ProjectFacade} from "../../../core/facades/project.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {MatInkBar} from "@angular/material/tabs";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
