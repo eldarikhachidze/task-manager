@@ -2,21 +2,31 @@
   <div class="sidebar" [ngStyle]="{
     'background-color': project.color
     }">
-    <div class="brd"> <h2> your boards </h2> <h2><mat-icon routerLink="/projects/setting/boards/add">add</mat-icon></h2> </div>
+    <div class="brd"> <h2> YOUR BOARDS </h2> <h2><mat-icon routerLink="/projects/setting/boards/add">add</mat-icon></h2></div>
     <ul>
-      <li *ngFor="let board of boards$ |async">
-        <a [routerLink]="['/dashboard', board.id]"> <h3>{{board.name}}</h3></a>
+      <li *ngFor="let board of boards$ |async" >
+        <a   [routerLink]="['/dashboard', board.id]"> <h3>{{board.name}}</h3></a>
+      </li>
+
+    </ul>
+    <mat-divider></mat-divider>
+    <ul>
+      <li >
+        <a  [routerLink]="['/backlog']"><mat-icon>space_dashboard</mat-icon> <h3>Backlog</h3></a>
+      </li>
+      <li >
+        <a  [routerLink]="['/projects/setting/users']"><mat-icon>perm_identity</mat-icon><h3>Members</h3> <mat-icon>add</mat-icon></a>
+      </li>
+      <li >
+        <a  [routerLink]="['/projects/setting']"><mat-icon >settings</mat-icon><h3>Workspace Settings</h3></a>
       </li>
     </ul>
-    <h2>boards</h2>
+
+
   </div>
+
+
   <router-outlet></router-outlet>
 
-<!--  <div class="content"  >-->
 
-<!--&lt;!&ndash;    <div *ngIf="!boardId" class="empty-board">&ndash;&gt;-->
-<!--&lt;!&ndash;      <h1>Dashboard</h1>&ndash;&gt;-->
-<!--&lt;!&ndash;      <p>Choose a board from the sidebar</p>&ndash;&gt;-->
-<!--&lt;!&ndash;    </div>&ndash;&gt;-->
-<!--  </div>-->
 </div>

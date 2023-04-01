@@ -36,7 +36,7 @@ $task-manager-theme: mat.define-light-theme((
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-$blue: linear-gradient(104.94deg, #5F45FF 27.57%, #2400FF 86.01%);
+
 $primary : #7c69eb;
 *{
   box-sizing: border-box;
@@ -47,6 +47,7 @@ $primary : #7c69eb;
 a {
   text-decoration: none;
 }
+
 .nav-menu {
   display: flex;
   justify-content: space-between;

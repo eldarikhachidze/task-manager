@@ -9,6 +9,8 @@ import {TaskService} from "../../../core/services/task.service";
 import * as _ from 'lodash'
 import {Task} from "../../../core/interfaces/task";
 import {TaskAddEditComponent} from "../../../shared/task-add-edit/task-add-edit.component";
+import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
+import {ETaskStatus} from "../../../core/enums/etask-status.enum";
 
 @Component({
   selector: 'app-board',
@@ -16,6 +18,16 @@ import {TaskAddEditComponent} from "../../../shared/task-add-edit/task-add-edit.
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
+  get columnsFormArray() {
+    return this.form.get('columns') as FormArray;
+  }
+  form: FormGroup = new FormGroup({
+    id: new FormControl(null),
+    name: new FormControl(null, Validators.required),
+    position: new FormControl(1, Validators.required),
+    description: new FormControl(null, Validators.required),
+    columns: new FormArray([], Validators.required),
+  })
   boardId!: number;
   board: Board = {} as Board;
   tasks: any = {
@@ -133,5 +145,15 @@ export class BoardComponent implements OnInit {
         this.getTasks()
       }
     })
+  }
+
+  addColumn() {
+    this.columnsFormArray.push(new FormGroup({
+      id: new FormControl(null),
+      name: new FormControl(null, Validators.required),
+      description: new FormControl(null, Validators.required),
+      position: new FormControl(this.columnsFormArray.length + 1, Validators.required),
+      taskStatus: new FormControl(ETaskStatus.ToDo, Validators.required)
+    }, Validators.required));
   }
 }
