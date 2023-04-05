@@ -1,6 +1,6 @@
 <div class="content">
   <div class="content_btn">
-    <button mat-raised-button color="primary" [routerLink]="['/projects/setting/boards/add']">Add Board</button>
+
   </div>
   <div class="container">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -25,10 +25,11 @@
 
       <!-- Name Column -->
       <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef>  </th>
+        <th mat-header-cell *matHeaderCellDef>
+          <button mat-raised-button color="primary" [routerLink]="['/projects/setting/boards/add']">Add Board</button></th>
         <td mat-cell *matCellDef="let element">
-          <button class="p-r" mat-raised-button color="primary" [routerLink]="['/projects/setting/boards/edit', element.id]">Edit</button>
-          <button mat-raised-button color="warn" (click)="deleteBoard(element.id)">Delete</button>
+          <button class="p-r" mat-icon-button color="primary" [routerLink]="['/projects/setting/boards/edit', element.id]"><span class="material-icons">edit </span></button>
+          <button mat-icon-button color="warn" (click)="deleteBoard(element.id)"><span class="material-icons">delete </span></button>
         </td>
       </ng-container>
 

@@ -1,3 +1,6 @@
 .container{
   margin: 2% auto;
 }
+.mat-mdc-raised-button.mat-primary {
+  --mdc-protected-button-container-color: rgba(96, 94, 94, 0.99);
+}

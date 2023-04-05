@@ -5,7 +5,7 @@
   <div class="container ">
     <div class="d-flex flex-wrap align-items-center  justify-content-between  gap-3">
       <a routerLink="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none logo ">
-        <div class="logo"> <img src="assets/images/lg.png"></div>
+        <div class="logo"> <img src="assets/images/lg.png" alt="logo"></div>
       </a>
       <ng-container *ngIf="isAuth; else notAuth">
 
@@ -13,7 +13,7 @@
 
           <ng-container *ngIf="currentProject">
 
-            <button class="btn-secondary" [routerLink]="['/projects/setting']" class="btn btn-primary">Setting</button>
+            <button  [routerLink]="['/projects/setting']" class="btn btn-primary">Setting</button>
 
           </ng-container>
 
@@ -22,7 +22,7 @@
 
 
 
-            <select class="proj"
+            <select
               [ngModel]="currentProject?.id" (ngModelChange)="selectProject($event)" class="dropdown-item p-2">
               <option *ngFor="let project of projects$ | async" [value]="project.id">
                 {{project.name}}
@@ -33,7 +33,7 @@
           </button>
           <mat-menu  #beforeMenu="matMenu" xPosition="before">
 
-<!--            <button mat-menu-item [routerLink]="['/dashboard']">Dashboard</button>-->
+            <button mat-menu-item [routerLink]="['/dashboard']">Dashboard</button>
             <button mat-menu-item [routerLink]="['/users']">Users</button>
             <button mat-menu-item [routerLink]="['/roles']">Roles</button>
 <!--            <button mat-menu-item [routerLink]="['/backlog']">Backlog</button>-->

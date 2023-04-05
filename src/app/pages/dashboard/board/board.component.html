@@ -8,7 +8,7 @@
          (cdkDropListDropped)="drop($event, column)">
       <div class="column-head">
         <h3>{{column.name}}</h3>
-        <button mat-icon-button (click)="addTask(column)"> <mat-icon> add </mat-icon></button>
+        <button mat-icon-button (click)="addTask(column)"> 	<mat-icon>add_task</mat-icon></button>
       </div>
       <div class="tasks">
         <div class="card" *ngFor="let task of tasks[column.id] || []" cdkDrag (dblclick)="viewTask(task, column)">
